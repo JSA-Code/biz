@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // enable static export after running "next build" in "out" folder
+  // output: "export",
   images: {
     remotePatterns: [
       {
