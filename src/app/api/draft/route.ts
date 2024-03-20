@@ -10,7 +10,10 @@ const clientWithToken = client.withConfig({ token });
 // console.log("TOKEN:", token);
 
 export async function GET(request: Request) {
-  const { isValid, redirectTo = "/" } = await validatePreviewUrl(clientWithToken, request.url);
+  const { isValid, redirectTo = "/" } = await validatePreviewUrl(
+    clientWithToken,
+    request.url
+  );
 
   if (!isValid) {
     return new Response("Invalid secret", { status: 401 });
@@ -19,3 +22,5 @@ export async function GET(request: Request) {
   draftMode().enable();
   redirect(redirectTo);
 }
+
+export const runtime = "edge";
