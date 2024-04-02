@@ -9,7 +9,7 @@ import Services from "./Services";
 // TODO update entire page to utilize Sanity data
 export default function Home() {
   return (
-    <main className="px-12 xl:px-24 mt-6 md:mt-12">
+    <main className="px-12 xl:px-24 mt-6 md:mt-12 space-y-10 md:space-y-16 lg:space-y-24">
       <Hero />
       <Appointment />
       <Contact />
