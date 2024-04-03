@@ -15,8 +15,8 @@ type Props = {};
 
 const navigation = [
   { name: "Appointment", href: "/#appointment", current: false },
-  { name: "Location", href: "/#office-location", current: false },
-  { name: "Support", href: "/#support", current: false },
+  { name: "Location", href: "/#office", current: false },
+  { name: "Support", href: "/#contact-us", current: false },
   { name: "Pricing", href: "/#pricing", current: false },
 ];
 
@@ -58,6 +58,7 @@ export default function Navbar({}: Props) {
                     />
                   </Link>
                 </div>
+                {/* Tablet+ navbar links */}
                 <div className="hidden sm:ml-6 sm:block">
                   <ul className="flex space-x-4">
                     {navigation.map((item) => (
@@ -67,7 +68,7 @@ export default function Navbar({}: Props) {
                           item.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-md font-medium"
+                          "rounded-md px-3 py-2 text-lg font-bold"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -184,81 +185,3 @@ export default function Navbar({}: Props) {
     </Disclosure>
   );
 }
-
-// export default function Navbar(props: NavbarProps) {
-//   return (
-//     <header className="bg-green-800 sticky top-0 z-10 font-bold text-lg md:text-xl">
-//      {/* TODO does the logo go inside the nav element? */}
-//      <nav className="hidden lg:flex items-center justify-between h-20 mx-28">
-//        <ul className="left-nav flex gap-12 justify-around items-center">
-//          <li>
-//            <Link href="/">
-//              <svg
-//                xmlns="http://www.w3.org/2000/svg"
-//                viewBox="0 0 24 24"
-//                fill="currentColor"
-//                className="w-10 h-10"
-//              >
-//                <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" />
-//              </svg>
-//            </Link>
-//          </li>
-//          <li className="hover:text-black">
-//            <Link href="/#appointment">Appointments</Link>
-//          </li>
-//          <li className="hover:text-black">
-//            <Link href="/#office-location">Office</Link>
-//          </li>
-//          <li className="hover:text-black">
-//            <Link href="/support">Support</Link>
-//          </li>
-//          <li className="hover:text-black">
-//            <Link href="/#pricing">Pricing</Link>
-//          </li>
-//        </ul>
-//        <ul className="right-nav flex items-center gap-10">
-//          <li>
-//            <Link href="/" className="hover:text-black">
-//              Search
-//            </Link>
-//          </li>
-//          <li>
-//            <Link href="/" className="hover:text-black">
-//              Sign In
-//            </Link>
-//          </li>
-//        </ul>
-//      </nav>
-//      <nav className="flex lg:hidden justify-between items-center pt-8 mx-10 md:ml-24">
-//        <button type="button">
-//          <svg
-//            xmlns="http://www.w3.org/2000/svg"
-//            fill="none"
-//            viewBox="0 0 24 24"
-//            stroke-width="1.5"
-//            stroke="currentColor"
-//            className="w-10 h-10"
-//          >
-//            <path
-//              stroke-linecap="round"
-//              stroke-linejoin="round"
-//              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-//            />
-//          </svg>
-//        </button>
-//        <ul className="right-nav flex items-center gap-10">
-//          <li>
-//            <Link href="/" className="hover:text-black">
-//              Search
-//            </Link>
-//          </li>
-//          <li>
-//            <Link href="/" className="hover:text-black">
-//              Sign In
-//            </Link>
-//          </li>
-//        </ul>
-//      </nav>
-//    </header>
-//   );
-// }

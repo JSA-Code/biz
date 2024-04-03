@@ -15,7 +15,7 @@ export default function Hero({}: Props) {
         <div className="flex-1 mb-5 md:mb-0">
           {/* TODO bottom div might need change? Is mx-auto necessary? */}
           <div className="mx-auto flex justify-center md:flex-col md:items-start flex-wrap gap-5 max-w-xl text-base md:text-xl font-semibold">
-            <h2 className="text-5xl md:text-6xl 2xl:text-7xl font-bold text-center md:text-start">
+            <h2 className="text-5xl md:text-6xl 2xl:text-7xl font-bold text-center md:text-start text-balance">
               Lorem ipsum dolor sit amet
             </h2>
             <Link

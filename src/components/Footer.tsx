@@ -6,9 +6,9 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer className="p-4 sm:p-8 bg-gray-900">
+    <footer className="relative p-4 sm:p-8 bg-gray-900 z-10">
       <div className="mx-auto max-w-screen-xl">
-        <div className="md:flex md:justify-between">
+        <div className="md:flex md:justify-between gap-x-10">
           <div className="mb-6 md:mb-0">
             <Link href="/" className="flex items-center">
               <Image
@@ -78,7 +78,7 @@ export default function Footer({}: Props) {
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <Link href="/#testimonals" className="hover:underline">
+                  <Link href="/#customer-review" className="hover:underline">
                     Testimonals
                   </Link>
                 </li>

@@ -6,11 +6,9 @@ type Props = {};
 
 export default function Review({}: Props) {
   return (
-    <section
-      id="customer-review"
-      className="max-w-screen-xl mx-auto text-center"
-    >
-      <figure className="max-w-screen-md mx-auto">
+    // TODO why do we need 2 mx-auto in the next two lines?
+    <section id="customer-review" className="max-w-screen-xl mx-auto">
+      <figure className="max-w-screen-md mx-auto text-center">
         <svg
           className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
           viewBox="0 0 24 27"
