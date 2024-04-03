@@ -26,6 +26,7 @@ function classNames(...classes: string[]) {
 
 export default function Navbar({}: Props) {
   return (
+    // TODO fix navbar, maybe use position: fixed?
     <Disclosure as="nav" className="bg-slate-800 sticky top-0 z-10">
       {({ open }) => (
         <>

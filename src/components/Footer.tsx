@@ -6,7 +6,7 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer className="relative p-4 sm:p-8 bg-gray-900 z-10">
+    <footer className="relative z-10 p-4 sm:p-8 bg-gray-900">
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between gap-x-10">
           <div className="mb-6 md:mb-0">

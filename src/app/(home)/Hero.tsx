@@ -8,7 +8,6 @@ export default function Hero({}: Props) {
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height
     // ensures user needs to scroll down first
-    // <section className="min-h-screen">
     <section id="hero" className="min-h-[50vh] mb-20 sm:mb-0">
       {/* TODO update min-h-[x] or margin */}
       <div className="flex flex-col md:flex-row items-center gap-x-14 gap-y-10">
