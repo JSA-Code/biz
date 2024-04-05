@@ -9,10 +9,10 @@ const clientWithToken = client.withConfig({ token });
 // console.log("CLIENT WITH TOKEN:", clientWithToken);
 // console.log("TOKEN:", token);
 
-export async function GET(request: Request) {
+export async function GET(req: Request) {
   const { isValid, redirectTo = "/" } = await validatePreviewUrl(
     clientWithToken,
-    request.url
+    req.url
   );
 
   if (!isValid) {

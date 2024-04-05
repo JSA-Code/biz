@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityDocument } from "next-sanity";
 import { dataset, projectId } from "@/env";
+import type { SanityDocument } from "next-sanity";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
@@ -15,7 +15,12 @@ export default function Post({ post }: { post: SanityDocument }) {
       {mainImage ? (
         <Image
           className="float-left m-0 w-1/3 mr-4 rounded-lg"
-          src={builder.image(mainImage).width(300).height(300).quality(80).url()}
+          src={builder
+            .image(mainImage)
+            .width(300)
+            .height(300)
+            .quality(80)
+            .url()}
           width={300}
           height={300}
           alt={mainImage.alt || ""}
