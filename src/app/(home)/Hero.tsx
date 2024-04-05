@@ -1,10 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import professional from "../../../public/professional.jpg";
+import Intro from "@/components/Intro";
+import { draftMode } from "next/headers";
+import IntroPreview from "@/components/IntroPreview";
+import { INTRO_QUERY } from "@/lib/queries";
+import { loadQuery } from "@/lib/store";
+import type { SanityDocument } from "next-sanity";
 
 type Props = {};
 
-export default function Hero({}: Props) {
+export default async function Hero({}: Props) {
+  const initial = await loadQuery<SanityDocument>(
+    INTRO_QUERY,
+    {},
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height
     // ensures user needs to scroll down first
@@ -14,9 +27,11 @@ export default function Hero({}: Props) {
         <div className="flex-1 mb-5 md:mb-0">
           {/* TODO bottom div might need change? Is mx-auto necessary? */}
           <div className="mx-auto flex justify-center md:flex-col md:items-start flex-wrap gap-5 max-w-xl text-base md:text-xl font-semibold">
-            <h2 className="text-5xl md:text-6xl 2xl:text-7xl font-bold text-center md:text-start text-balance">
-              Lorem ipsum dolor sit amet
-            </h2>
+            {draftMode().isEnabled ? (
+              <IntroPreview initial={initial} />
+            ) : (
+              <Intro intro={initial.data} />
+            )}
             <Link
               href="/#appointment"
               // TODO should this elem be display: block or inline-block?

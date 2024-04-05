@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* TODO fix Navbar and footer to not appear in Studio */}
         <Navbar />
         {children}
         {draftMode().isEnabled && <LiveVisualEditing />}
