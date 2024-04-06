@@ -1,7 +1,6 @@
 import type { SchemaTypeDefinition } from "sanity";
-import introType from "./introType";
+import homeType from "./homeType";
 
-// TODO add schema types
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [introType],
+  types: [homeType],
 };

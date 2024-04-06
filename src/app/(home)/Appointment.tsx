@@ -8,8 +8,8 @@ export default function Appointment({}: Props) {
     <section id="appointment">
       {/* <!-- Calendly inline widget begin --> */}
       <div
-        className="calendly-inline-widget h-[700px]"
-        data-url="https://calendly.com/jsa-finance/book-your-appointment?background_color=1d1f1d&text_color=f2f7f9&primary_color=7dcdff"
+        className="calendly-inline-widget h-[1050px] sm:h-[700px]"
+        data-url="https://calendly.com/jsa-app/book-your-appointment?background_color=1d1f1d&text_color=f2f7f9&primary_color=7dcdff"
       ></div>
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
