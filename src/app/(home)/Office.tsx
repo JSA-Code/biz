@@ -5,7 +5,7 @@ type Props = {};
 export default function Office({}: Props) {
   // TODO check if env var is present
   return (
-    <section id="office" className="max-w-screen-2xl mx-auto">
+    <section id="office">
       <GoogleMapsEmbed
         apiKey={process.env.GOOGLE_MAPS_API || ""}
         height={350}

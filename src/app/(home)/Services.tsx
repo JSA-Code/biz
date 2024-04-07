@@ -2,10 +2,7 @@ type Props = {};
 
 export default function Services({}: Props) {
   return (
-    <section
-      id="services"
-      className="mx-auto max-w-screen-2xl bg-zinc-900 p-16 py-20 rounded-2xl"
-    >
+    <section id="services" className="bg-zinc-900 p-16 py-20 rounded-2xl">
       <div className="max-w-screen-md mb-8 lg:mb-16">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Designed for business teams like yours

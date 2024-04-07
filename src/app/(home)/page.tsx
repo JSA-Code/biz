@@ -23,15 +23,16 @@ export default async function Home() {
   );
   // console.log("INITIAL:", initial);
   return (
-    <main className="px-10 xl:px-16 mt-6 md:mt-12 space-y-16 md:space-y-20 lg:space-y-24 mb-16 sm:mb-36">
+    // TODO should I use max-w-screen-2xl and mx-auto here or on each indiv sections?
+    <main className="px-10 xl:px-16 mt-6 md:mt-12 space-y-16 md:space-y-20 lg:space-y-24 mb-16 sm:mb-36 max-w-screen-2xl mx-auto">
       {draftMode().isEnabled ? (
         <>
           <HeroPreview initial={initial} />
           <Appointment />
           <ContactPreview initial={initial} />
           <Office />
-          <Services />
           <Review />
+          <Services />
           <Pricing />
         </>
       ) : (
@@ -40,8 +41,8 @@ export default async function Home() {
           <Appointment />
           <Contact data={initial.data} />
           <Office />
-          <Services />
           <Review />
+          <Services />
           <Pricing />
         </>
       )}

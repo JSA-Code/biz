@@ -2,7 +2,7 @@ type Props = {};
 
 export default function Pricing({}: Props) {
   return (
-    <section id="pricing" className="mx-auto max-w-screen-2xl">
+    <section id="pricing">
       <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Designed for business teams like yours

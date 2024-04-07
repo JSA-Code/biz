@@ -5,7 +5,7 @@ import type { SanityDocument } from "next-sanity";
 export default function Contact({ data }: { data: SanityDocument }) {
   // console.log("CONTACT DATA:", data);
   return (
-    <section id="contact-us" className="max-w-screen-2xl">
+    <section id="contact-us">
       <div className="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
         <div className="mr-auto place-self-center lg:col-span-6 lg:col-start-2">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
