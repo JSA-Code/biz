@@ -15,7 +15,7 @@ type Props = {};
 
 const navigation = [
   { name: "Appointment", href: "/#appointment", current: false },
-  { name: "Location", href: "/#office", current: false },
+  { name: "Location", href: "/#office-location", current: false },
   { name: "Support", href: "/#contact-us", current: false },
   { name: "Pricing", href: "/#pricing", current: false },
 ];

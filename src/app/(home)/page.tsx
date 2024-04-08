@@ -4,12 +4,14 @@ import { loadQuery } from "@/lib/store";
 import Appointment from "./Appointment";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import Office from "./Office";
-import Pricing from "./Pricing";
-import Review from "./Review";
-import Services from "./Services";
+import OfficeLocation from "@/components/OfficeLocation";
+import Pricing from "@/components/Pricing";
+import Review from "@/components/Review";
+import Services from "@/components/Services";
 import HeroPreview from "@/components/CMS/HeroPreview";
 import ContactPreview from "@/components/CMS/ContactPreview";
+import ReviewPreview from "@/components/CMS/ReviewPreview";
+import OfficeLocationPreview from "@/components/CMS/OfficeLocationPreview";
 import type { SanityDocument } from "next-sanity";
 
 // TODO update entire page to utilize Sanity data
@@ -30,8 +32,8 @@ export default async function Home() {
           <HeroPreview initial={initial} />
           <Appointment />
           <ContactPreview initial={initial} />
-          <Office />
-          <Review />
+          <OfficeLocationPreview initial={initial} />
+          <ReviewPreview initial={initial} />
           <Services />
           <Pricing />
         </>
@@ -40,8 +42,8 @@ export default async function Home() {
           <Hero data={initial.data} />
           <Appointment />
           <Contact data={initial.data} />
-          <Office />
-          <Review />
+          <OfficeLocation data={initial.data} />
+          <Review data={initial.data} />
           <Services />
           <Pricing />
         </>

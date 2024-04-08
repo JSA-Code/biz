@@ -2,10 +2,10 @@
 
 import { HOME_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Hero from "@/components/Hero";
+import Review from "@/components/Review";
 import type { SanityDocument } from "next-sanity";
 
-export default function HeroPreview({
+export default function ReviewPreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
@@ -13,8 +13,8 @@ export default function HeroPreview({
   const { data } = useQuery<SanityDocument | null>(HOME_QUERY, {}, { initial });
 
   return data ? (
-    <Hero data={data} />
+    <Review data={data} />
   ) : (
-    <div className="bg-red-100">No hero data found</div>
+    <div className="bg-red-100">No review data found</div>
   );
 }

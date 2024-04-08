@@ -1,9 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { SanityDocument } from "next-sanity";
+import ImageBox from "./ImageBox";
 
 export default function Contact({ data }: { data: SanityDocument }) {
   // console.log("CONTACT DATA:", data);
+  const { contactImage } = data[0];
   return (
     <section id="contact-us">
       <div className="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
@@ -39,13 +40,10 @@ export default function Contact({ data }: { data: SanityDocument }) {
             Speak to Sales
           </Link>
         </div>
-        <div className="hidden relative lg:mt-0 lg:col-span-5 lg:flex">
-          <Image
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-            alt="mockup"
-            fill
-          />
-        </div>
+        <ImageBox
+          image={contactImage}
+          classesWrapper="hidden relative lg:mt-0 lg:col-span-5 lg:flex"
+        />
       </div>
     </section>
   );

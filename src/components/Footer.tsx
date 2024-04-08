@@ -65,7 +65,7 @@ export default function Footer({}: Props) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#office" className="hover:underline">
+                  <Link href="/#office-location" className="hover:underline">
                     Location
                   </Link>
                 </li>

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../../public/professional.jpg";
+import logo from "../../public/professional.jpg";
+import { SanityDocument } from "next-sanity";
 
-type Props = {};
-
-export default function Review({}: Props) {
+export default function Review({ data }: { data: SanityDocument }) {
+  const { reviewText, reviewName, reviewJob } = data[0];
   return (
     // TODO why do we need 2 mx-auto in the next two lines?
     <section id="customer-review" className="max-w-screen-xl mx-auto">
@@ -22,9 +22,7 @@ export default function Review({}: Props) {
         </svg>
         <blockquote>
           <p className="text-2xl font-medium text-gray-900 dark:text-white">
-            &quot; Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Obcaecati, repudiandae. Consectetur expedita in, vero aliquam
-            maiores animi ratione suscipit hic! &quot;
+            &quot;{reviewText || "EMPTY REVIEW TEXT"}&quot;
           </p>
         </blockquote>
         <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -38,10 +36,10 @@ export default function Review({}: Props) {
             />
             <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
               <div className="pr-3 font-medium text-gray-900 dark:text-white">
-                Micheal Gough
+                {reviewName || "EMPTY REVIEW NAME"}
               </div>
               <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                CEO at Google
+                {reviewJob || "EMPTY REVIEW JOB"}
               </div>
             </div>
           </Link>
