@@ -1,8 +1,6 @@
 import Script from "next/script";
 
-type Props = {};
-
-export default function Appointment({}: Props) {
+export default function Appointment() {
   return (
     // TODO prevent scrolling when hover within elem
     <section id="appointment">

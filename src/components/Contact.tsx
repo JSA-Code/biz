@@ -1,17 +1,17 @@
 import Link from "next/link";
-import type { SanityDocument } from "next-sanity";
 import ImageBox from "./ImageBox";
+import type { SanityDocument } from "next-sanity";
 
 export default function Contact({ data }: { data: SanityDocument }) {
   // console.log("CONTACT DATA:", data);
   // TODO should I add default values in object destruc or do {VAR || "DEFAULT TEXT"} in case one of them contains empty string?
   const {
-    contact: {
-      heading = "EMPTY HEADING",
-      subheading = "EMPTY SUBHEADING",
-      image = null,
-    } = {},
-  } = data[0];
+    heading = "HEADING",
+    subheading = "SUBHEADING",
+    image = null,
+    primaryButton = { label: "BUTTON1", link: "https://example.com" },
+    secondaryButton = { label: "BUTTON2", link: "https://example.com" },
+  } = data ?? {};
   return (
     <section id="contact-us">
       <div className="grid max-w-screen-xl mx-auto lg:gap-8 lg:grid-cols-12">
@@ -23,10 +23,10 @@ export default function Contact({ data }: { data: SanityDocument }) {
             {subheading}
           </p>
           <Link
-            href="#"
-            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+            href={primaryButton.link}
+            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-lg font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
-            Get started
+            {primaryButton.label}
             <svg
               className="w-5 h-5 ml-2 -mr-1"
               fill="currentColor"
@@ -41,10 +41,10 @@ export default function Contact({ data }: { data: SanityDocument }) {
             </svg>
           </Link>
           <Link
-            href="#"
-            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+            href={secondaryButton.link}
+            className="inline-flex items-center justify-center px-5 py-3 text-lg font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
-            Speak to Sales
+            {secondaryButton.label}
           </Link>
         </div>
         <ImageBox

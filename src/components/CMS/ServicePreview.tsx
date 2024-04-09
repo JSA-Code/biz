@@ -1,19 +1,23 @@
 "use client";
 
-import { HOME_QUERY } from "@/lib/queries";
+import { SERVICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Services from "@/components/Services";
+import Service from "@/components/Service";
 import type { SanityDocument } from "next-sanity";
 
-export default function ServicesPreview({
+export default function ServicePreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
 }) {
-  const { data } = useQuery<SanityDocument | null>(HOME_QUERY, {}, { initial });
+  const { data } = useQuery<SanityDocument | null>(
+    SERVICE_QUERY,
+    {},
+    { initial }
+  );
 
   return data ? (
-    <Services data={data} />
+    <Service data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

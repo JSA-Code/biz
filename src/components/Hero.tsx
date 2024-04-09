@@ -4,13 +4,13 @@ import type { SanityDocument } from "next-sanity";
 
 export default function Hero({ data }: { data: SanityDocument }) {
   const {
-    hero: {
-      heading = "Empty Heading",
-      subheading = "Empty Subheading",
-      image = null,
-    } = {},
-  } = data[0];
-  // console.log("HEADING IMAGE:", headingImage);
+    heading = "HEADING",
+    subheading = "SUBHEADING",
+    primaryButton = { label: "BUTTON1", link: "https://example.com" },
+    secondaryButton = { label: "BUTTON2", link: "https://example.com" },
+    image = null,
+  } = data ?? {};
+  // console.log("DATA:", data);
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height, ensures user needs to scroll down first
     // TODO how does this work? 80svh will assume the ui top bar on phone is always present thus adjusts height accordingly
@@ -28,17 +28,17 @@ export default function Hero({ data }: { data: SanityDocument }) {
             </div>
             <div className="flex flex-col lg:items-start gap-5 max-w-sm md:max-w-xl mx-auto lg:mx-0">
               <Link
-                href="/#appointment"
+                href={primaryButton.link}
                 // TODO should these two elems be display: block or inline-block?
                 className="bg-green-800 hover:bg-slate-800 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                Set Appointment
+                {primaryButton.label}
               </Link>
               <Link
-                href="/#contact-us"
+                href={secondaryButton.link}
                 className="bg-slate-800 hover:bg-green-700 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                Contact Us
+                {secondaryButton.label}
               </Link>
             </div>
           </div>

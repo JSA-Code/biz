@@ -37,6 +37,7 @@ export default function ImageBox({
           width={width}
           height={height}
           sizes={sizes}
+          placeholder="blur"
           src={imageUrl}
         />
       )}

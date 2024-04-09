@@ -1,19 +1,23 @@
 "use client";
 
-import { HOME_QUERY } from "@/lib/queries";
+import { PRICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import OfficeLocation from "@/components/OfficeLocation";
+import Price from "@/components/Price";
 import type { SanityDocument } from "next-sanity";
 
-export default function OfficeLocationPreview({
+export default function PricePreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
 }) {
-  const { data } = useQuery<SanityDocument | null>(HOME_QUERY, {}, { initial });
+  const { data } = useQuery<SanityDocument | null>(
+    PRICE_QUERY,
+    {},
+    { initial }
+  );
 
   return data ? (
-    <OfficeLocation data={data} />
+    <Price data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

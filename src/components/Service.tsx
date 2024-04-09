@@ -1,23 +1,21 @@
 import ImageBox from "./ImageBox";
 import type { SanityDocument } from "next-sanity";
 
-export default function Services({ data }: { data: SanityDocument }) {
+export default function Service({ data }: { data: SanityDocument }) {
   // TODO refactor item duplication using array of components
   // TODO check if types are correct for SanityDocument
   const {
-    services: {
-      heading = "EMPTY HEADING",
-      subheading = "EMPTY SUBHEADING",
-      serviceList = [
-        {
-          heading: "EMPTY HEADING",
-          subheading: "EMPTY SUBHEADING",
-          icon: null,
-          _key: 123,
-        },
-      ],
-    } = {},
-  } = data[0];
+    heading = "HEADING",
+    subheading = "SUBHEADING",
+    serviceList = [
+      {
+        heading: "HEADING",
+        subheading: "SUBHEADING",
+        icon: null,
+        _key: 123,
+      },
+    ],
+  } = data ?? {};
   // console.log("DATA:", data);
   return (
     <section id="services" className="bg-zinc-900 p-16 py-20 rounded-2xl">
@@ -32,7 +30,7 @@ export default function Services({ data }: { data: SanityDocument }) {
       {/* Parent grid container of services */}
       <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
         {serviceList.map((item: SanityDocument) => (
-          <ServiceComp service={item} key={item._key} />
+          <ServiceComp unit={item} key={item._key} />
         ))}
       </div>
     </section>
@@ -40,9 +38,9 @@ export default function Services({ data }: { data: SanityDocument }) {
 }
 
 function ServiceComp({
-  service: { heading, subheading, icon },
+  unit: { heading = "HEADING", subheading = "SUBHEADING", icon = null },
 }: {
-  service: SanityDocument;
+  unit: SanityDocument;
 }) {
   return (
     <div>
