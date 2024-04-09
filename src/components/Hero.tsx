@@ -3,7 +3,13 @@ import ImageBox from "./ImageBox";
 import type { SanityDocument } from "next-sanity";
 
 export default function Hero({ data }: { data: SanityDocument }) {
-  const { headingImage } = data[0];
+  const {
+    hero: {
+      heading = "Empty Heading",
+      subheading = "Empty Subheading",
+      image = null,
+    } = {},
+  } = data[0];
   // console.log("HEADING IMAGE:", headingImage);
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height, ensures user needs to scroll down first
@@ -16,11 +22,9 @@ export default function Hero({ data }: { data: SanityDocument }) {
           <div className="text-lg text-center text-balance font-semibold space-y-6">
             <div className="max-w-lg sm:max-w-2xl space-y-6">
               <h2 className="text-5xl 2xl:text-7xl font-bold lg:text-start">
-                {data[0]?.headingText || "Empty Heading"}
+                {heading}
               </h2>
-              <h3 className="lg:text-start font-medium">
-                {data[0]?.subheadingText || "Empty Subheading"}
-              </h3>
+              <h3 className="lg:text-start font-medium">{subheading}</h3>
             </div>
             <div className="flex flex-col lg:items-start gap-5 max-w-sm md:max-w-xl mx-auto lg:mx-0">
               <Link
@@ -40,7 +44,7 @@ export default function Hero({ data }: { data: SanityDocument }) {
           </div>
         </div>
         <ImageBox
-          image={headingImage}
+          image={image}
           classesWrapper="flex-1 mx-auto h-56 sm:h-72 lg:h-full rounded-md shadow-slate-900/50 shadow-xl"
           sizes="(min-width: 780px) calc(48.92vw - 60px), calc(100vw - 80px)"
         />

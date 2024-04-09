@@ -1,16 +1,17 @@
-type Props = {};
+import type { SanityDocument } from "next-sanity";
 
-export default function Pricing({}: Props) {
+export default function Pricing({ data }: { data: SanityDocument }) {
+  // TODO MUST INCLUDE PARENT OBJECTS OR ARRAY OF OBJECTS CALLED pricing1, pricing2, pricing3, W/ CHILD ARRAYS
+  const { heading = "EMPTY HEADING", subheading = "EMPTY SUBHEADING" } =
+    data[0];
   return (
     <section id="pricing">
       <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-          Designed for business teams like yours
+          {heading}
         </h2>
         <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam vitae
-          vero nam ratione voluptatem ex hic, quibusdam quaerat, voluptatibus
-          voluptatum fugiat omnis fugit rerum qui fuga non nisi reiciendis?
+          {subheading}
         </p>
       </div>
       <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">

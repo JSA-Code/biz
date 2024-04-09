@@ -2,7 +2,7 @@ import { GoogleMapsEmbed } from "@next/third-parties/google";
 import { SanityDocument } from "next-sanity";
 
 export default function OfficeLocation({ data }: { data: SanityDocument }) {
-  const { officeLocation } = data[0];
+  const { officeLocation = "Disneyland,Anaheim,CA" } = data[0];
   // TODO check if env var GOOGLE_MAPS is present, use safety function such as token.ts
   return (
     <section id="office-location">
@@ -12,7 +12,7 @@ export default function OfficeLocation({ data }: { data: SanityDocument }) {
         height={350}
         width="100%"
         mode="place"
-        q={officeLocation || "Disneyland,Anaheim,CA"}
+        q={officeLocation}
       />
     </section>
   );

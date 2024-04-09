@@ -15,6 +15,6 @@ export default function ReviewPreview({
   return data ? (
     <Review data={data} />
   ) : (
-    <div className="bg-red-100">No review data found</div>
+    <div className="bg-red-100">No data found</div>
   );
 }

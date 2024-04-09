@@ -12,6 +12,8 @@ import HeroPreview from "@/components/CMS/HeroPreview";
 import ContactPreview from "@/components/CMS/ContactPreview";
 import ReviewPreview from "@/components/CMS/ReviewPreview";
 import OfficeLocationPreview from "@/components/CMS/OfficeLocationPreview";
+import ServicesPreview from "@/components/CMS/ServicesPreview";
+import PricingPreview from "@/components/CMS/PricingPreview";
 import type { SanityDocument } from "next-sanity";
 
 // TODO update entire page to utilize Sanity data
@@ -34,8 +36,8 @@ export default async function Home() {
           <ContactPreview initial={initial} />
           <OfficeLocationPreview initial={initial} />
           <ReviewPreview initial={initial} />
-          <Services />
-          <Pricing />
+          <ServicesPreview initial={initial} />
+          <PricingPreview initial={initial} />
         </>
       ) : (
         <>
@@ -44,8 +46,8 @@ export default async function Home() {
           <Contact data={initial.data} />
           <OfficeLocation data={initial.data} />
           <Review data={initial.data} />
-          <Services />
-          <Pricing />
+          <Services data={initial.data} />
+          <Pricing data={initial.data} />
         </>
       )}
     </main>

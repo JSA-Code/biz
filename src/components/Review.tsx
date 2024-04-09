@@ -4,7 +4,13 @@ import logo from "../../public/professional.jpg";
 import { SanityDocument } from "next-sanity";
 
 export default function Review({ data }: { data: SanityDocument }) {
-  const { reviewText, reviewName, reviewJob } = data[0];
+  const {
+    review: {
+      heading = "EMPTY HEADING",
+      name = "EMPTY NAME",
+      company = "EMTPY COMPANY",
+    } = {},
+  } = data[0];
   return (
     // TODO why do we need 2 mx-auto in the next two lines?
     <section id="customer-review" className="max-w-screen-xl mx-auto">
@@ -22,7 +28,7 @@ export default function Review({ data }: { data: SanityDocument }) {
         </svg>
         <blockquote>
           <p className="text-2xl font-medium text-gray-900 dark:text-white">
-            &quot;{reviewText || "EMPTY REVIEW TEXT"}&quot;
+            &quot;{heading}&quot;
           </p>
         </blockquote>
         <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -36,10 +42,10 @@ export default function Review({ data }: { data: SanityDocument }) {
             />
             <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
               <div className="pr-3 font-medium text-gray-900 dark:text-white">
-                {reviewName || "EMPTY REVIEW NAME"}
+                {name}
               </div>
               <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                {reviewJob || "EMPTY REVIEW JOB"}
+                {company}
               </div>
             </div>
           </Link>

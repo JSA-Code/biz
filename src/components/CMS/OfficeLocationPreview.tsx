@@ -15,6 +15,6 @@ export default function OfficeLocationPreview({
   return data ? (
     <OfficeLocation data={data} />
   ) : (
-    <div className="bg-red-100">No office data found</div>
+    <div className="bg-red-100">No data found</div>
   );
 }

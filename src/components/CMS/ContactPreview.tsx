@@ -15,6 +15,6 @@ export default function ContactPreview({
   return data ? (
     <Contact data={data} />
   ) : (
-    <div className="bg-red-100">No contact data found</div>
+    <div className="bg-red-100">No data found</div>
   );
 }

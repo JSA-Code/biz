@@ -4,16 +4,23 @@ import ImageBox from "./ImageBox";
 
 export default function Contact({ data }: { data: SanityDocument }) {
   // console.log("CONTACT DATA:", data);
-  const { contactImage } = data[0];
+  // TODO should I add default values in object destruc or do {VAR || "DEFAULT TEXT"} in case one of them contains empty string?
+  const {
+    contact: {
+      heading = "EMPTY HEADING",
+      subheading = "EMPTY SUBHEADING",
+      image = null,
+    } = {},
+  } = data[0];
   return (
     <section id="contact-us">
-      <div className="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
+      <div className="grid max-w-screen-xl mx-auto lg:gap-8 lg:grid-cols-12">
         <div className="mr-auto place-self-center lg:col-span-6 lg:col-start-2">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-            Contact Us
+            {heading}
           </h1>
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            {data[0]?.contactText || "EMPTY CONTACT"}
+            {subheading}
           </p>
           <Link
             href="#"
@@ -41,7 +48,7 @@ export default function Contact({ data }: { data: SanityDocument }) {
           </Link>
         </div>
         <ImageBox
-          image={contactImage}
+          image={image}
           classesWrapper="hidden relative lg:mt-0 lg:col-span-5 lg:flex"
         />
       </div>
