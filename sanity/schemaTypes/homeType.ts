@@ -150,8 +150,8 @@ export default defineType({
           of: [
             defineArrayMember({
               type: "object",
-              name: "service",
-              title: "Service",
+              name: "serviceComp",
+              title: "Service Component",
               fields: [
                 defineField({
                   type: "string",
@@ -164,6 +164,97 @@ export default defineType({
                   name: "subheading",
                   title: "Subheading",
                   description: "Write the description of the service",
+                }),
+                defineField({
+                  type: "image",
+                  name: "icon",
+                  title: "Icon",
+                  description: "Replace icon",
+                  options: {
+                    hotspot: true,
+                  },
+                  // validation: (rule) => rule.required(),
+                  fields: [
+                    {
+                      type: "string",
+                      name: "alt",
+                      title: "Alternative Text",
+                    },
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      type: "object",
+      name: "pricing",
+      title: "Pricing",
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+      },
+      fields: [
+        defineField({
+          type: "string",
+          name: "heading",
+          title: "Heading",
+          description: "Write the main heading",
+        }),
+        defineField({
+          type: "string",
+          name: "subheading",
+          title: "Subheading",
+          description: "Write the main subheading",
+        }),
+        defineField({
+          type: "array",
+          name: "pricingList",
+          title: "Pricing List",
+          of: [
+            defineArrayMember({
+              type: "object",
+              name: "priceComp",
+              title: "Price Component",
+              fields: [
+                defineField({
+                  type: "string",
+                  name: "heading",
+                  title: "Heading",
+                  description: "Write the type of pricing",
+                }),
+                defineField({
+                  type: "string",
+                  name: "subheading",
+                  title: "Subheading",
+                  description: "Write the description of the pricing",
+                }),
+                defineField({
+                  type: "string",
+                  name: "frequency",
+                  title: "Frequency",
+                  description: "Write how often the client will be charged",
+                }),
+                defineField({
+                  type: "number",
+                  name: "price",
+                  title: "Price",
+                  description: "Write a price ($)",
+                }),
+                defineField({
+                  type: "array",
+                  name: "featureList",
+                  title: "Feature List",
+                  of: [
+                    defineArrayMember({
+                      type: "string",
+                      name: "feature",
+                      title: "Feature",
+                      description: "Write all the associated features",
+                    }),
+                  ],
                 }),
                 defineField({
                   type: "image",

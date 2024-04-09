@@ -5,16 +5,18 @@ export default function Services({ data }: { data: SanityDocument }) {
   // TODO refactor item duplication using array of components
   // TODO check if types are correct for SanityDocument
   const {
-    heading = "EMPTY HEADING",
-    subheading = "EMPTY SUBHEADING",
-    services: { serviceList } = [
-      {
-        heading: "EMPTY HEADING",
-        subheading: "EMPTY SUBHEADING",
-        icon: null,
-        _key: "123",
-      },
-    ],
+    services: {
+      heading = "EMPTY HEADING",
+      subheading = "EMPTY SUBHEADING",
+      serviceList = [
+        {
+          heading: "EMPTY HEADING",
+          subheading: "EMPTY SUBHEADING",
+          icon: null,
+          _key: 123,
+        },
+      ],
+    } = {},
   } = data[0];
   // console.log("DATA:", data);
   return (
@@ -30,14 +32,14 @@ export default function Services({ data }: { data: SanityDocument }) {
       {/* Parent grid container of services */}
       <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
         {serviceList.map((item: SanityDocument) => (
-          <Service service={item} key={item._key} />
+          <ServiceComp service={item} key={item._key} />
         ))}
       </div>
     </section>
   );
 }
 
-function Service({
+function ServiceComp({
   service: { heading, subheading, icon },
 }: {
   service: SanityDocument;
