@@ -9,7 +9,7 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import logo from "@/professional.jpg";
+import logo from "@/public/professional.jpg";
 
 type Props = {};
 

@@ -2,7 +2,7 @@
 
 import { HERO_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Hero from "@/components/shared/Hero";
+import Hero from "@/components/modules/Hero";
 import type { SanityDocument } from "next-sanity";
 
 export default function HeroPreview({
@@ -11,6 +11,7 @@ export default function HeroPreview({
   initial: QueryResponseInitial<SanityDocument>;
 }) {
   const { data } = useQuery<SanityDocument | null>(HERO_QUERY, {}, { initial });
+  // console.log("DATA", data);
 
   return data ? (
     <Hero data={data} />

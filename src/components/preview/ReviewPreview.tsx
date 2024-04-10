@@ -2,7 +2,7 @@
 
 import { REVIEW_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Review from "@/components/shared/Review";
+import Review from "@/components/modules/Review";
 import type { SanityDocument } from "next-sanity";
 
 export default function ReviewPreview({

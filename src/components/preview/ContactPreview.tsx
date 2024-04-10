@@ -2,7 +2,7 @@
 
 import { CONTACT_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Contact from "@/components/shared/Contact";
+import Contact from "@/components/modules/Contact";
 import type { SanityDocument } from "next-sanity";
 
 export default function ContactPreview({

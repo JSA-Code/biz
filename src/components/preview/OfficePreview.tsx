@@ -2,7 +2,7 @@
 
 import { OFFICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Office from "@/components/shared/Office";
+import Office from "@/components/modules/Office";
 import type { SanityDocument } from "next-sanity";
 
 export default function OfficePreview({

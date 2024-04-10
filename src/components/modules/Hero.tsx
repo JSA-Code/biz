@@ -10,7 +10,7 @@ export default function Hero({ data }: { data: SanityDocument }) {
     secondaryButton = { label: "BUTTON2", link: "https://example.com" },
     image = null,
   } = data ?? {};
-  // console.log("DATA:", data);
+  // console.log("HERO DATA:", data);
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height, ensures user needs to scroll down first
     // TODO how does this work? 80svh will assume the ui top bar on phone is always present thus adjusts height accordingly

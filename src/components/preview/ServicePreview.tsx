@@ -2,7 +2,7 @@
 
 import { SERVICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Service from "@/components/shared/Service";
+import Service from "@/components/modules/Service";
 import type { SanityDocument } from "next-sanity";
 
 export default function ServicePreview({

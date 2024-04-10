@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/professional.jpg";
+import logo from "@/public/professional.jpg";
 
 type Props = {};
 

@@ -9,6 +9,7 @@ export default defineType({
       type: "array",
       name: "docList",
       title: "Document List",
+      validation: (rule) => rule.required(),
       of: [
         defineArrayMember({
           type: "reference",

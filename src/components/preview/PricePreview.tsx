@@ -2,7 +2,7 @@
 
 import { PRICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Price from "@/components/shared/Price";
+import Price from "@/components/modules/Price";
 import type { SanityDocument } from "next-sanity";
 
 export default function PricePreview({

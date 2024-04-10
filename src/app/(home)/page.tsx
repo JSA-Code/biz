@@ -1,8 +1,8 @@
-import { draftMode } from "next/headers";
-import { HOME_QUERY } from "@/lib/queries";
-import Home from "@/components/shared/Home";
-import HomePreview from "@/components/preview/HomePreview";
 import { loadQuery } from "@/lib/store";
+import { HOME_QUERY } from "@/lib/queries";
+import { draftMode } from "next/headers";
+import HomePreview from "@/components/preview/HomePreview";
+import Home from "@/components/modules/Home";
 import type { SanityDocument } from "next-sanity";
 
 // TODO update entire page to utilize Sanity data
@@ -20,7 +20,7 @@ export default async function Page() {
       {draftMode().isEnabled ? (
         <HomePreview initial={home} />
       ) : (
-        <Home data={home.data[0]} />
+        <Home data={home.data} />
       )}
     </main>
   );
