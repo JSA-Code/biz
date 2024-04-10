@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 
+export const HOME_QUERY = groq`*[_type == "home"]{docList[]->}`;
 export const HERO_QUERY = groq`*[_type == "hero"]`;
 export const CONTACT_QUERY = groq`*[_type == "contact"]`;
 export const OFFICE_QUERY = groq`*[_type == "office"]`;

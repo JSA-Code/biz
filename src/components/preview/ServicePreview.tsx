@@ -1,19 +1,23 @@
 "use client";
 
-import { HERO_QUERY } from "@/lib/queries";
+import { SERVICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Hero from "@/components/Hero";
+import Service from "@/components/shared/Service";
 import type { SanityDocument } from "next-sanity";
 
-export default function HeroPreview({
+export default function ServicePreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
 }) {
-  const { data } = useQuery<SanityDocument | null>(HERO_QUERY, {}, { initial });
+  const { data } = useQuery<SanityDocument | null>(
+    SERVICE_QUERY,
+    {},
+    { initial }
+  );
 
   return data ? (
-    <Hero data={data} />
+    <Service data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

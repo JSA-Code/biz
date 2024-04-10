@@ -1,23 +1,23 @@
 "use client";
 
-import { REVIEW_QUERY } from "@/lib/queries";
+import { OFFICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Review from "@/components/Review";
+import Office from "@/components/shared/Office";
 import type { SanityDocument } from "next-sanity";
 
-export default function ReviewPreview({
+export default function OfficePreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
 }) {
   const { data } = useQuery<SanityDocument | null>(
-    REVIEW_QUERY,
+    OFFICE_QUERY,
     {},
     { initial }
   );
 
   return data ? (
-    <Review data={data} />
+    <Office data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

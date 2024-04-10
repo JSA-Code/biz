@@ -1,23 +1,23 @@
 "use client";
 
-import { CONTACT_QUERY } from "@/lib/queries";
+import { REVIEW_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Contact from "@/components/Contact";
+import Review from "@/components/shared/Review";
 import type { SanityDocument } from "next-sanity";
 
-export default function ContactPreview({
+export default function ReviewPreview({
   initial,
 }: {
   initial: QueryResponseInitial<SanityDocument>;
 }) {
   const { data } = useQuery<SanityDocument | null>(
-    CONTACT_QUERY,
+    REVIEW_QUERY,
     {},
     { initial }
   );
 
   return data ? (
-    <Contact data={data} />
+    <Review data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

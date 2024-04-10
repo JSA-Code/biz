@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
 import LiveVisualEditing from "@/components/LiveVisualEditing";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/global/Navbar";
+import Footer from "@/components/global/Footer";
 import type { Metadata } from "next";
 import "../globals.css";
 
