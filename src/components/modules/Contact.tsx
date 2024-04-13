@@ -1,16 +1,20 @@
 import Link from "next/link";
 import ImageBox from "./ImageBox";
-import type { SanityDocument } from "next-sanity";
+import type { ContactType } from "@/types";
 
-export default function Contact({ data }: { data: SanityDocument }) {
+interface ContactProps {
+  data: ContactType;
+}
+
+export default function Contact({ data }: ContactProps) {
   // console.log("CONTACT DATA:", data);
   // TODO should I add default values in object destruc or do {VAR || "DEFAULT TEXT"} in case one of them contains empty string?
   const {
     heading = "HEADING",
     subheading = "SUBHEADING",
-    image = null,
-    primaryButton = { label: "BUTTON1", link: "https://example.com" },
-    secondaryButton = { label: "BUTTON2", link: "https://example.com" },
+    image = undefined,
+    primaryButton = {},
+    secondaryButton = {},
   } = data ?? {};
   return (
     <section id="contact-us">
@@ -23,10 +27,10 @@ export default function Contact({ data }: { data: SanityDocument }) {
             {subheading}
           </p>
           <Link
-            href={primaryButton.link}
+            href={primaryButton.link ?? "https://example.com"}
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-lg font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
-            {primaryButton.label}
+            {primaryButton.label ?? "BUTTON1"}
             <svg
               className="w-5 h-5 ml-2 -mr-1"
               fill="currentColor"
@@ -41,10 +45,10 @@ export default function Contact({ data }: { data: SanityDocument }) {
             </svg>
           </Link>
           <Link
-            href={secondaryButton.link}
+            href={secondaryButton.link ?? "https://example.com"}
             className="inline-flex items-center justify-center px-5 py-3 text-lg font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
-            {secondaryButton.label}
+            {secondaryButton.label ?? "BUTTON2"}
           </Link>
         </div>
         <ImageBox

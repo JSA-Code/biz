@@ -6,10 +6,6 @@ import Footer from "@/components/global/Footer";
 import type { Metadata } from "next";
 import "../globals.css";
 
-// TODO figure out why Sanity Template on GH does this?
-// const HomePagePreview = dynamic(
-//   () => import('@/components/pages/home/HomePagePreview'),
-// )
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

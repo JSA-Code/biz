@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 export default defineType({
   type: "document",
   name: "service",
-  title: "Services",
+  title: "Service",
   fields: [
     defineField({
       type: "string",
@@ -19,7 +19,7 @@ export default defineType({
     }),
     defineField({
       type: "array",
-      name: "serviceList",
+      name: "services",
       title: "Service List",
       of: [
         defineArrayMember({

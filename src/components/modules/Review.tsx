@@ -1,42 +1,47 @@
 import Link from "next/link";
-import Image from "next/image";
 import ImageBox from "./ImageBox";
-import type { SanityDocument } from "next-sanity";
+import type { ReviewType, ReviewItemType } from "@/types";
 
-export default function Review({ data }: { data: SanityDocument }) {
+interface ReviewProps {
+  data: ReviewType;
+}
+
+export default function Review({ data }: ReviewProps) {
   const {
-    reviewList = [
+    reviews = [
       {
         heading: "HEADING",
         name: "NAME",
         company: "COMPANY",
         link: "https://example.com",
-        image: null,
-        _key: 123,
+        image: undefined,
+        _key: "123",
       },
     ],
   } = data ?? {};
   return (
     // TODO why do we need 2 mx-auto in the next two lines?
     <section id="customer-review" className="max-w-screen-xl mx-auto">
-      {reviewList.map((item: SanityDocument) => (
-        <ReviewComp unit={item} key={item._key} />
+      {reviews.map((item: ReviewItemType) => (
+        <ReviewComp item={item} key={item._key} />
       ))}
     </section>
   );
 }
 
+interface ReviewCompProps {
+  item: ReviewItemType;
+}
+
 function ReviewComp({
-  unit: {
+  item: {
     heading = "HEADING",
     name = "NAME",
     company = "COMPANY",
     link = "https://example.com",
-    image = null,
+    image = undefined,
   },
-}: {
-  unit: SanityDocument;
-}) {
+}: ReviewCompProps) {
   return (
     <figure className="max-w-screen-md mx-auto text-center">
       <svg

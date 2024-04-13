@@ -3,18 +3,14 @@
 import { OFFICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Office from "@/components/modules/Office";
-import type { SanityDocument } from "next-sanity";
+import type { OfficeType } from "@/types";
 
-export default function OfficePreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(
-    OFFICE_QUERY,
-    {},
-    { initial }
-  );
+interface OfficePreviewProps {
+  initial: QueryResponseInitial<OfficeType>;
+}
+
+export default function OfficePreview({ initial }: OfficePreviewProps) {
+  const { data } = useQuery<OfficeType | null>(OFFICE_QUERY, {}, { initial });
 
   return data ? (
     <Office data={data} />

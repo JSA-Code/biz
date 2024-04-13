@@ -1,8 +1,6 @@
-type Props = {};
-
-export default function About({}: Props) {
+export default function AboutPage({}) {
   return (
-    <main className="min-h-screen border-red-500 border-2">
+    <main className="border-red-500 border-2">
       <h2>MAIN CONTENT FOR ABOUT US</h2>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima error

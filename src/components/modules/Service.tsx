@@ -1,18 +1,22 @@
 import ImageBox from "./ImageBox";
-import type { SanityDocument } from "next-sanity";
+import type { ServiceType, ServiceItemType } from "@/types";
 
-export default function Service({ data }: { data: SanityDocument }) {
+interface ServiceProps {
+  data: ServiceType;
+}
+
+export default function Service({ data }: ServiceProps) {
   // TODO refactor item duplication using array of components
   // TODO check if types are correct for SanityDocument
   const {
     heading = "HEADING",
     subheading = "SUBHEADING",
-    serviceList = [
+    services = [
       {
         heading: "HEADING",
         subheading: "SUBHEADING",
-        icon: null,
-        _key: 123,
+        icon: undefined,
+        _key: "123",
       },
     ],
   } = data ?? {};
@@ -29,19 +33,21 @@ export default function Service({ data }: { data: SanityDocument }) {
       </div>
       {/* Parent grid container of services */}
       <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-        {serviceList.map((item: SanityDocument) => (
-          <ServiceComp unit={item} key={item._key} />
+        {services.map((item: ServiceItemType) => (
+          <ServiceComp item={item} key={item._key} />
         ))}
       </div>
     </section>
   );
 }
 
+interface ServiceCompProps {
+  item: ServiceItemType;
+}
+
 function ServiceComp({
-  unit: { heading = "HEADING", subheading = "SUBHEADING", icon = null },
-}: {
-  unit: SanityDocument;
-}) {
+  item: { heading = "HEADING", subheading = "SUBHEADING", icon = undefined },
+}: ServiceCompProps) {
   return (
     <div>
       <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">

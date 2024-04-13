@@ -3,18 +3,14 @@
 import { PRICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Price from "@/components/modules/Price";
-import type { SanityDocument } from "next-sanity";
+import type { PriceType } from "@/types";
 
-export default function PricePreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(
-    PRICE_QUERY,
-    {},
-    { initial }
-  );
+interface PricePreviewProps {
+  initial: QueryResponseInitial<PriceType>;
+}
+
+export default function PricePreview({ initial }: PricePreviewProps) {
+  const { data } = useQuery<PriceType | null>(PRICE_QUERY, {}, { initial });
 
   return data ? (
     <Price data={data} />

@@ -3,14 +3,14 @@
 import { HERO_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Hero from "@/components/modules/Hero";
-import type { SanityDocument } from "next-sanity";
+import type { HeroType } from "@/types";
 
-export default function HeroPreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(HERO_QUERY, {}, { initial });
+interface HeroPreviewProps {
+  initial: QueryResponseInitial<HeroType>;
+}
+
+export default function HeroPreview({ initial }: HeroPreviewProps) {
+  const { data } = useQuery<HeroType | null>(HERO_QUERY, {}, { initial });
   // console.log("DATA", data);
 
   return data ? (

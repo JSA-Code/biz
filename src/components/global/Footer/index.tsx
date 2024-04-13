@@ -2,9 +2,34 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/professional.jpg";
 
-type Props = {};
+const navigation = [
+  {
+    heading: "Services",
+    linkItems: [
+      { name: "W-2 Employee", link: "/#services" },
+      { name: "Self-Employed", link: "/#services" },
+      { name: "Pricing", link: "/#pricing" },
+    ],
+  },
+  {
+    heading: "Support",
+    linkItems: [
+      { name: "Contact Us", link: "/#contact-us" },
+      { name: "Where's my refund?", link: "/support" },
+      { name: "Location", link: "/#office-location" },
+    ],
+  },
+  {
+    heading: "About",
+    linkItems: [
+      { name: "Testimonals", link: "/#customer-review" },
+      { name: "Privacy Policy", link: "/privacy-policy" },
+      { name: "Terms & Conditions", link: "/terms-and-conditions" },
+    ],
+  },
+];
 
-export default function Footer({}: Props) {
+export default function Footer() {
   return (
     <footer className="relative z-10 p-4 sm:p-8 bg-gray-900">
       <div className="mx-auto max-w-screen-xl">
@@ -23,87 +48,18 @@ export default function Footer({}: Props) {
               </span>
             </Link>
           </div>
-          {/* Link container, right side */}
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            {/* Services section */}
-            <section>
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Services
-              </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
-                <li className="mb-4">
-                  <Link href="/#services" className="hover:underline">
-                    W-2 Employee
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link href="/#services" className="hover:underline">
-                    Self-Employed
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#pricing" className="hover:underline">
-                    Pricing
-                  </Link>
-                </li>
-              </ul>
-            </section>
-            {/* Support section */}
-            <section>
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Support
-              </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
-                <li className="mb-4">
-                  <Link href="/#contact-us" className="hover:underline ">
-                    Contact Us
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link href="/refund" className="hover:underline">
-                    Where&apos;s my refund?
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#office-location" className="hover:underline">
-                    Location
-                  </Link>
-                </li>
-              </ul>
-            </section>
-            {/* Other section */}
-            <section>
-              <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Other
-              </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
-                <li className="mb-4">
-                  <Link href="/#customer-review" className="hover:underline">
-                    Testimonals
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link href="privacy-policy" className="hover:underline">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms-and-conditions"
-                    className="hover:underline"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-              </ul>
-            </section>
+            {/* SECTIONS GO HERE*/}
+            {navigation.map((item) => (
+              <SectionComp data={item} key={item.heading} />
+            ))}
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2022{" "}
-            <Link href="https://flowbite.com" className="hover:underline">
+            <Link href="https://example.com" className="hover:underline">
               Example Site™
             </Link>
             . All Rights Reserved.
@@ -160,5 +116,28 @@ export default function Footer({}: Props) {
         </div>
       </div>
     </footer>
+  );
+}
+
+interface SectionCompProps {
+  data: { heading: string; linkItems: { name: string; link: string }[] };
+}
+
+function SectionComp({ data: { heading, linkItems } }: SectionCompProps) {
+  return (
+    <section>
+      <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+        {heading}
+      </h2>
+      <ul className="text-gray-600 dark:text-gray-400">
+        {linkItems.map((item) => (
+          <li className="mb-4" key={item.name}>
+            <Link href={item.link} className="hover:underline">
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

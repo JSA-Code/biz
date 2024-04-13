@@ -2,15 +2,19 @@
 
 import { HOME_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Home from "@/components/modules/Home";
-import type { SanityDocument } from "next-sanity";
+import Home from "@/app/(home)/Home";
+import type { HomePayloadType } from "@/types";
 
 export default function HomePreview({
   initial,
 }: {
-  initial: QueryResponseInitial<SanityDocument>;
+  initial: QueryResponseInitial<HomePayloadType>;
 }) {
-  const { data } = useQuery<SanityDocument | null>(HOME_QUERY, {}, { initial });
+  const { data } = useQuery<HomePayloadType | null>(
+    HOME_QUERY,
+    {},
+    { initial }
+  );
   // console.log("HOMEPREVIEW DATA", data);
   return data ? (
     <Home data={data} />

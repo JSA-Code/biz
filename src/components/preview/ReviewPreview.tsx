@@ -3,18 +3,14 @@
 import { REVIEW_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Review from "@/components/modules/Review";
-import type { SanityDocument } from "next-sanity";
+import type { ReviewType } from "@/types";
 
-export default function ReviewPreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(
-    REVIEW_QUERY,
-    {},
-    { initial }
-  );
+interface ReviewPreviewProps {
+  initial: QueryResponseInitial<ReviewType>;
+}
+
+export default function ReviewPreview({ initial }: ReviewPreviewProps) {
+  const { data } = useQuery<ReviewType | null>(REVIEW_QUERY, {}, { initial });
 
   return data ? (
     <Review data={data} />

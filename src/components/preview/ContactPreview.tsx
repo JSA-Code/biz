@@ -3,18 +3,14 @@
 import { CONTACT_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Contact from "@/components/modules/Contact";
-import type { SanityDocument } from "next-sanity";
+import type { ContactType } from "@/types";
 
-export default function ContactPreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(
-    CONTACT_QUERY,
-    {},
-    { initial }
-  );
+interface ContactPreviewProps {
+  initial: QueryResponseInitial<ContactType>;
+}
+
+export default function ContactPreview({ initial }: ContactPreviewProps) {
+  const { data } = useQuery<ContactType | null>(CONTACT_QUERY, {}, { initial });
 
   return data ? (
     <Contact data={data} />

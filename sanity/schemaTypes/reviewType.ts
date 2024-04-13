@@ -3,11 +3,11 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 export default defineType({
   type: "document",
   name: "review",
-  title: "Reviews",
+  title: "Review",
   fields: [
     defineField({
       type: "array",
-      name: "reviewList",
+      name: "reviews",
       title: "Review List",
       of: [
         defineArrayMember({

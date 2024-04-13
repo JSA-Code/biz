@@ -1,17 +1,25 @@
-type Props = {};
+import { loadQuery } from "@/lib/store";
+import { SUPPORT_QUERY } from "@/lib/queries";
+import { draftMode } from "next/headers";
+import SupportPreview from "./SupportPreview";
+import Support from "./Support";
+import type { SanityDocument } from "next-sanity";
 
-export default function Support({}: Props) {
+export default async function SupportPage() {
+  const initial = await loadQuery<SanityDocument>(
+    SUPPORT_QUERY,
+    {},
+    {
+      perspective: draftMode().isEnabled ? "previewDrafts" : "published",
+    }
+  );
   return (
-    <main className="min-h-screen border-red-500 border-2">
-      <h2>MAIN CONTENT FOR SUPPORT</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima error
-        debitis voluptatibus voluptas soluta unde consequatur necessitatibus
-        harum nostrum nisi facilis veniam sequi voluptatem blanditiis, explicabo
-        velit perferendis aliquid in ut dolore dignissimos! Iusto, quia ea est a
-        beatae at, molestiae hic aliquam fuga, laboriosam sapiente excepturi
-        vero natus minus?
-      </p>
+    <main className="mx-auto max-w-screen-2xl px-10 xl:px-16 mt-6 md:mt-12 space-y-16 md:space-y-20 lg:space-y-24 mb-16 sm:mb-36">
+      {draftMode().isEnabled ? (
+        <SupportPreview initial={initial} />
+      ) : (
+        <Support data={initial.data} />
+      )}
     </main>
   );
 }

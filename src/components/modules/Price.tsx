@@ -1,11 +1,15 @@
-import type { SanityDocument } from "next-sanity";
+import type { PriceType, PriceItemType } from "@/types";
 
-export default function Price({ data }: { data: SanityDocument }) {
+interface PriceProps {
+  data: PriceType;
+}
+
+export default function Price({ data }: PriceProps) {
   // TODO can I give heading or pricingList a type?
   const {
     heading = "HEADING",
     subheading = "SUBHEADING",
-    priceList = [
+    prices = [
       {
         heading: "HEADING",
         subheading: "SUBHEADING",
@@ -13,7 +17,7 @@ export default function Price({ data }: { data: SanityDocument }) {
         button: "BUTTON",
         price: "PRICE",
         featureList: ["F1", "F2", "F3", "F4", "F5"],
-        _key: 123,
+        _key: "123",
       },
     ],
   } = data ?? {};
@@ -31,16 +35,21 @@ export default function Price({ data }: { data: SanityDocument }) {
       <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         {/* Pricing Card */}
         {/* TODO is there a diff when I add const = pricingList.map() above rather than here? */}
-        {priceList.map((item: SanityDocument) => (
-          <PriceComp unit={item} key={item._key} />
+        {prices.map((item: PriceItemType) => (
+          <PriceComp item={item} key={item._key} />
         ))}
       </div>
     </section>
   );
 }
+
+interface PriceCompProps {
+  item: PriceItemType;
+}
+
 // TODO update param types
 function PriceComp({
-  unit: {
+  item: {
     heading = "HEADING",
     subheading = "SUBHEADING",
     frequency = "FREQUENCY",
@@ -48,9 +57,7 @@ function PriceComp({
     price = "PRICE",
     featureList = ["G1", "G2", "G3", "G4", "G5"],
   },
-}: {
-  unit: SanityDocument;
-}) {
+}: PriceCompProps) {
   return (
     <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-zinc-900 dark:text-white">
       <h3 className="mb-4 text-2xl font-semibold">{heading}</h3>
@@ -65,7 +72,7 @@ function PriceComp({
       <ul role="list" className="mb-8 space-y-4 text-left">
         {/* TODO use unique id since each item does not contain a _key */}
         {featureList.map((item: string, index: number) => (
-          <FeatureComp feature={item} key={index} />
+          <FeatureComp item={item} key={index} />
         ))}
       </ul>
       <a
@@ -78,7 +85,11 @@ function PriceComp({
   );
 }
 
-function FeatureComp({ feature }: { feature: string }) {
+interface FeatureCompProps {
+  item: string;
+}
+
+function FeatureComp({ item }: FeatureCompProps) {
   return (
     <li className="flex items-center space-x-3">
       {/* Icon */}
@@ -94,7 +105,7 @@ function FeatureComp({ feature }: { feature: string }) {
           clipRule="evenodd"
         />
       </svg>
-      <span>{feature}</span>
+      <span>{item}</span>
     </li>
   );
 }

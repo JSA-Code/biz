@@ -1,14 +1,20 @@
 import Link from "next/link";
 import ImageBox from "./ImageBox";
-import type { SanityDocument } from "next-sanity";
+import type { HeroType } from "@/types";
 
-export default function Hero({ data }: { data: SanityDocument }) {
+interface HeroProps {
+  data: HeroType;
+}
+
+export default function Hero({ data }: HeroProps) {
+  // TODO learn when to use default values in obj/arr destructure and in func params? PROB SOLN, use def val when non obj/arr or when obj/arr can be further destr
+  // primaryButton = { label: "BUTTON1", link: "https://example.com" } vs href={primaryButton.link ?? "https://example.com"}
   const {
     heading = "HEADING",
     subheading = "SUBHEADING",
-    primaryButton = { label: "BUTTON1", link: "https://example.com" },
-    secondaryButton = { label: "BUTTON2", link: "https://example.com" },
-    image = null,
+    primaryButton = {},
+    secondaryButton = {},
+    image = undefined,
   } = data ?? {};
   // console.log("HERO DATA:", data);
   return (
@@ -28,17 +34,17 @@ export default function Hero({ data }: { data: SanityDocument }) {
             </div>
             <div className="flex flex-col lg:items-start gap-5 max-w-sm md:max-w-xl mx-auto lg:mx-0">
               <Link
-                href={primaryButton.link}
+                href={primaryButton.link ?? "https://example.com"}
                 // TODO should these two elems be display: block or inline-block?
                 className="bg-green-800 hover:bg-slate-800 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                {primaryButton.label}
+                {primaryButton.label ?? "BUTTON1"}
               </Link>
               <Link
-                href={secondaryButton.link}
+                href={secondaryButton.link ?? "https://example.com"}
                 className="bg-slate-800 hover:bg-green-700 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                {secondaryButton.label}
+                {secondaryButton.label ?? "BUTTON2"}
               </Link>
             </div>
           </div>

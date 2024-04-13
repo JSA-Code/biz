@@ -7,13 +7,13 @@ export default defineType({
   fields: [
     defineField({
       type: "array",
-      name: "docList",
+      name: "documents",
       title: "Document List",
       validation: (rule) => rule.required(),
       of: [
         defineArrayMember({
           type: "reference",
-          name: "docRef",
+          name: "references",
           title: "Document Reference",
           to: [
             { type: "hero" },

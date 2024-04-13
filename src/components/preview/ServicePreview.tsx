@@ -3,18 +3,14 @@
 import { SERVICE_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Service from "@/components/modules/Service";
-import type { SanityDocument } from "next-sanity";
+import type { ServiceType } from "@/types";
 
-export default function ServicePreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
-  const { data } = useQuery<SanityDocument | null>(
-    SERVICE_QUERY,
-    {},
-    { initial }
-  );
+interface ServicePreviewProps {
+  initial: QueryResponseInitial<ServiceType>;
+}
+
+export default function ServicePreview({ initial }: ServicePreviewProps) {
+  const { data } = useQuery<ServiceType | null>(SERVICE_QUERY, {}, { initial });
 
   return data ? (
     <Service data={data} />

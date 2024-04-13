@@ -1,7 +1,11 @@
 import { GoogleMapsEmbed } from "@next/third-parties/google";
-import type { SanityDocument } from "next-sanity";
+import type { OfficeType } from "@/types";
 
-export default function Office({ data }: { data: SanityDocument }) {
+interface OfficeProps {
+  data: OfficeType;
+}
+
+export default function Office({ data }: OfficeProps) {
   const { location = "Disneyland,Anaheim,CA" } = data ?? {};
   // TODO check if env var GOOGLE_MAPS is present, use safety function such as token.ts
   return (
