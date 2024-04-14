@@ -1,4 +1,4 @@
-import Appointment from "./Appointment";
+import Appointment from "@/components/modules/Appointment";
 import Contact from "@/components/modules/Contact";
 import Hero from "@/components/modules/Hero";
 import Office from "@/components/modules/Office";
