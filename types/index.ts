@@ -1,44 +1,37 @@
 import type { Image } from "sanity";
 
-// TODO Home / Support page should be called _Payload, they act like containers
-
-export type HomePayloadType = {
-  documents?: HomePayloadItemType[];
-};
-
-export type HomePayloadItemType =
-  | HeroType
-  | ContactType
-  | OfficeType
-  | ReviewType
-  | ServiceType
-  | PriceType;
+export interface HomePayloadType {
+  documents?: {
+    hero?: HeroType;
+    contact?: ContactType;
+    office?: OfficeType;
+    review?: ReviewType;
+    service?: ServiceType;
+    price?: PriceType;
+  };
+}
 
 export interface HeroType {
-  _type: "hero";
   heading?: string;
   subheading?: string;
-  primaryButton?: { label?: string; link?: string };
-  secondaryButton?: { label?: string; link?: string };
+  primaryButton?: { primaryLabel?: string; primaryLink?: string };
+  secondaryButton?: { secondaryLabel?: string; secondaryLink?: string };
   image?: Image;
 }
 
 export interface ContactType {
-  _type: "contact";
   heading?: string;
   subheading?: string;
   image?: Image;
-  primaryButton?: { label?: string; link?: string };
-  secondaryButton?: { label?: string; link?: string };
+  primaryButton?: { primaryLabel?: string; primaryLink?: string };
+  secondaryButton?: { secondaryLabel?: string; secondaryLink?: string };
 }
 
 export interface OfficeType {
-  _type: "office";
   location?: string;
 }
 
 export interface ReviewType {
-  _type: "review";
   reviews?: ReviewItemType[];
 }
 
@@ -52,7 +45,6 @@ export interface ReviewItemType {
 }
 
 export interface ServiceType {
-  _type: "service";
   heading?: string;
   subheading?: string;
   services?: ServiceItemType[];
@@ -66,7 +58,6 @@ export interface ServiceItemType {
 }
 
 export interface PriceType {
-  _type: "price";
   heading?: string;
   subheading?: string;
   prices?: PriceItemType[];
@@ -76,7 +67,8 @@ export interface PriceItemType {
   heading?: string;
   subheading?: string;
   frequency?: string;
-  button?: string;
+  buttonLabel?: string;
+  buttonLink?: string;
   price?: string;
   featureList?: string[];
   _key?: string;

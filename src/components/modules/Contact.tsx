@@ -7,15 +7,16 @@ interface ContactProps {
 }
 
 export default function Contact({ data }: ContactProps) {
-  // console.log("CONTACT DATA:", data);
-  // TODO should I add default values in object destruc or do {VAR || "DEFAULT TEXT"} in case one of them contains empty string?
-  const {
-    heading = "HEADING",
-    subheading = "SUBHEADING",
-    image = undefined,
-    primaryButton = {},
-    secondaryButton = {},
-  } = data ?? {};
+  const heading = data?.heading ?? "HEADING";
+  const subheading = data?.subheading ?? "SUBHEADING";
+  const primaryButton = data?.primaryButton ?? {};
+  const primaryLabel = primaryButton.primaryLabel ?? "BUTTON 1";
+  const primaryLink = primaryButton.primaryLink ?? "https://example.com";
+  const secondaryButton = data?.secondaryButton ?? {};
+  const secondaryLabel = secondaryButton.secondaryLabel ?? "BUTTON 2";
+  const secondaryLink = secondaryButton.secondaryLink ?? "https://example.com";
+  const image = data?.image ?? undefined;
+
   return (
     <section id="contact-us">
       <div className="grid max-w-screen-xl mx-auto lg:gap-8 lg:grid-cols-12">
@@ -27,10 +28,10 @@ export default function Contact({ data }: ContactProps) {
             {subheading}
           </p>
           <Link
-            href={primaryButton.link ?? "https://example.com"}
+            href={primaryLink}
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-lg font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
-            {primaryButton.label ?? "BUTTON1"}
+            {primaryLabel}
             <svg
               className="w-5 h-5 ml-2 -mr-1"
               fill="currentColor"
@@ -45,10 +46,10 @@ export default function Contact({ data }: ContactProps) {
             </svg>
           </Link>
           <Link
-            href={secondaryButton.link ?? "https://example.com"}
+            href={secondaryLink}
             className="inline-flex items-center justify-center px-5 py-3 text-lg font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
-            {secondaryButton.label ?? "BUTTON2"}
+            {secondaryLabel}
           </Link>
         </div>
         <ImageBox

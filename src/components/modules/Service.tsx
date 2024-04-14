@@ -6,21 +6,17 @@ interface ServiceProps {
 }
 
 export default function Service({ data }: ServiceProps) {
-  // TODO refactor item duplication using array of components
-  // TODO check if types are correct for SanityDocument
-  const {
-    heading = "HEADING",
-    subheading = "SUBHEADING",
-    services = [
-      {
-        heading: "HEADING",
-        subheading: "SUBHEADING",
-        icon: undefined,
-        _key: "123",
-      },
-    ],
-  } = data ?? {};
-  // console.log("DATA:", data);
+  const heading = data?.heading ?? "HEADING";
+  const subheading = data?.subheading ?? "SUBHEADING";
+  const services = data?.services ?? [
+    {
+      heading: "HEADING",
+      subheading: "SUBHEADING",
+      icon: undefined,
+      _key: "123",
+    },
+  ];
+
   return (
     <section id="services" className="bg-zinc-900 p-16 py-20 rounded-2xl">
       <div className="max-w-screen-md mb-8 lg:mb-16">
@@ -45,9 +41,11 @@ interface ServiceCompProps {
   item: ServiceItemType;
 }
 
-function ServiceComp({
-  item: { heading = "HEADING", subheading = "SUBHEADING", icon = undefined },
-}: ServiceCompProps) {
+function ServiceComp({ item }: ServiceCompProps) {
+  const heading = item.heading ?? "HEADING";
+  const subheading = item.subheading ?? "SUBHEADING";
+  const icon = item.icon ?? undefined;
+
   return (
     <div>
       <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">

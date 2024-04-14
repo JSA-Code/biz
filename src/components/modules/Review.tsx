@@ -7,18 +7,17 @@ interface ReviewProps {
 }
 
 export default function Review({ data }: ReviewProps) {
-  const {
-    reviews = [
-      {
-        heading: "HEADING",
-        name: "NAME",
-        company: "COMPANY",
-        link: "https://example.com",
-        image: undefined,
-        _key: "123",
-      },
-    ],
-  } = data ?? {};
+  const reviews = data?.reviews ?? [
+    {
+      heading: "HEADING",
+      name: "NAME",
+      company: "COMPANY",
+      link: "https://example.com",
+      image: undefined,
+      _key: "123",
+    },
+  ];
+
   return (
     // TODO why do we need 2 mx-auto in the next two lines?
     <section id="customer-review" className="max-w-screen-xl mx-auto">
@@ -33,15 +32,13 @@ interface ReviewCompProps {
   item: ReviewItemType;
 }
 
-function ReviewComp({
-  item: {
-    heading = "HEADING",
-    name = "NAME",
-    company = "COMPANY",
-    link = "https://example.com",
-    image = undefined,
-  },
-}: ReviewCompProps) {
+function ReviewComp({ item }: ReviewCompProps) {
+  const heading = item.heading ?? "HEADING";
+  const name = item.name ?? "NAME";
+  const company = item.company ?? "COMPANY";
+  const link = item.link ?? "https://example.com";
+  const image = item.image ?? undefined;
+
   return (
     <figure className="max-w-screen-md mx-auto text-center">
       <svg

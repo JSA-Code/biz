@@ -47,9 +47,15 @@ export default defineType({
             }),
             defineField({
               type: "string",
-              name: "button",
-              title: "Button",
+              name: "buttonLabel",
+              title: "Button Label",
               description: "Write an action word",
+            }),
+            defineField({
+              type: "url",
+              name: "buttonLink",
+              title: "Button Link",
+              description: "Write a link",
             }),
             defineField({
               type: "number",

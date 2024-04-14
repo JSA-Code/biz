@@ -5,41 +5,30 @@ import Office from "@/components/modules/Office";
 import Price from "@/components/modules/Price";
 import Review from "@/components/modules/Review";
 import Service from "@/components/modules/Service";
-import type {
-  HomePayloadType,
-  HomePayloadItemType,
-  HeroType,
-  ContactType,
-  OfficeType,
-  ReviewType,
-  ServiceType,
-  PriceType,
-} from "@/types";
+import type { HomePayloadType } from "@/types";
 
 interface HomeProps {
   data: HomePayloadType;
 }
 
 export default function Home({ data }: HomeProps) {
-  // TODO fix default values
-  const { documents } = data ?? {};
-  const docs = (documents || []).reduce(
-    (acc: { [key: string]: HomePayloadItemType }, doc: HomePayloadItemType) => {
-      acc[doc?._type] = doc;
-      return acc;
-    },
-    {}
-  );
-  // console.log("DOCS", docs);
+  const documents = data?.documents ?? {};
+  const hero = documents.hero ?? {};
+  const contact = documents.contact ?? {};
+  const office = documents.office ?? {};
+  const review = documents.review ?? {};
+  const service = documents.service ?? {};
+  const price = documents.price ?? {};
+
   return (
     <>
-      <Hero data={docs.hero as HeroType} />
+      <Hero data={hero} />
       <Appointment />
-      <Contact data={docs.contact as ContactType} />
-      <Office data={docs.office as OfficeType} />
-      <Review data={docs.review as ReviewType} />
-      <Service data={docs.service as ServiceType} />
-      <Price data={docs.price as PriceType} />
+      <Contact data={contact} />
+      <Office data={office} />
+      <Review data={review} />
+      <Service data={service} />
+      <Price data={price} />
     </>
   );
 }

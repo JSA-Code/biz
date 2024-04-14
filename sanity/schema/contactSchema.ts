@@ -2,20 +2,20 @@ import { defineField, defineType } from "sanity";
 
 export default defineType({
   type: "document",
-  name: "hero",
-  title: "Hero",
+  name: "contact",
+  title: "Contact",
   fields: [
     defineField({
       type: "string",
       name: "heading",
       title: "Heading",
-      description: "Write a short, introductive heading",
+      description: "Write heading name",
     }),
     defineField({
       type: "string",
       name: "subheading",
       title: "Subheading",
-      description: "Write a short, introductive subheading",
+      description: "Write your contact information",
     }),
     defineField({
       type: "object",
@@ -28,13 +28,13 @@ export default defineType({
       fields: [
         defineField({
           type: "string",
-          name: "label",
+          name: "primaryLabel",
           title: "Button Label",
           description: "Write an action word",
         }),
         defineField({
           type: "url",
-          name: "link",
+          name: "primaryLink",
           title: "Button Link",
           description: "Enter the URL this button should link to",
           validation: (Rule) =>
@@ -55,13 +55,13 @@ export default defineType({
       fields: [
         defineField({
           type: "string",
-          name: "label",
+          name: "secondaryLabel",
           title: "Button Label",
           description: "Write an action word",
         }),
         defineField({
           type: "url",
-          name: "link",
+          name: "secondaryLink",
           title: "Button Link",
           description: "Enter the URL this button should link to",
           validation: (Rule) =>

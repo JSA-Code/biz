@@ -7,16 +7,16 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
-  // TODO learn when to use default values in obj/arr destructure and in func params? PROB SOLN, use def val when non obj/arr or when obj/arr can be further destr
-  // primaryButton = { label: "BUTTON1", link: "https://example.com" } vs href={primaryButton.link ?? "https://example.com"}
-  const {
-    heading = "HEADING",
-    subheading = "SUBHEADING",
-    primaryButton = {},
-    secondaryButton = {},
-    image = undefined,
-  } = data ?? {};
-  // console.log("HERO DATA:", data);
+  const heading = data?.heading ?? "HEADING";
+  const subheading = data?.subheading ?? "SUBHEADING";
+  const primaryButton = data?.primaryButton ?? {};
+  const primaryLabel = primaryButton.primaryLabel ?? "BUTTON 1";
+  const primaryLink = primaryButton.primaryLink ?? "https://example.com";
+  const secondaryButton = data?.secondaryButton ?? {};
+  const secondaryLabel = secondaryButton.secondaryLabel ?? "BUTTON 2";
+  const secondaryLink = secondaryButton.secondaryLink ?? "https://example.com";
+  const image = data?.image ?? undefined;
+
   return (
     // min-h-screen is min-height: 100vh; which means min 100% of viewport height, ensures user needs to scroll down first
     // TODO how does this work? 80svh will assume the ui top bar on phone is always present thus adjusts height accordingly
@@ -34,17 +34,17 @@ export default function Hero({ data }: HeroProps) {
             </div>
             <div className="flex flex-col lg:items-start gap-5 max-w-sm md:max-w-xl mx-auto lg:mx-0">
               <Link
-                href={primaryButton.link ?? "https://example.com"}
+                href={primaryLink}
                 // TODO should these two elems be display: block or inline-block?
                 className="bg-green-800 hover:bg-slate-800 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                {primaryButton.label ?? "BUTTON1"}
+                {primaryLabel}
               </Link>
               <Link
-                href={secondaryButton.link ?? "https://example.com"}
+                href={secondaryLink}
                 className="bg-slate-800 hover:bg-green-700 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
-                {secondaryButton.label ?? "BUTTON2"}
+                {secondaryLabel}
               </Link>
             </div>
           </div>
