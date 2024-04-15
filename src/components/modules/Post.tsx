@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import { dataset, projectId } from "@/env";
+import { dataset, projectId } from "@/lib/api";
 import type { SanityDocument } from "next-sanity";
 
 const builder = imageUrlBuilder({ projectId, dataset });

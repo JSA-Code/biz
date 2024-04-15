@@ -5,11 +5,11 @@ import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Home from "@/app/(home)/Home";
 import type { HomePayloadType } from "@/types";
 
-export default function HomePreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<HomePayloadType>;
-}) {
+interface HomePreviewProps {
+  initial: QueryResponseInitial<HomePayloadType | null>;
+}
+
+export default function HomePreview({ initial }: HomePreviewProps) {
   const { data } = useQuery<HomePayloadType | null>(
     HOME_QUERY,
     {},

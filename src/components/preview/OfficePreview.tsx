@@ -6,7 +6,7 @@ import Office from "@/components/modules/Office";
 import type { OfficeType } from "@/types";
 
 interface OfficePreviewProps {
-  initial: QueryResponseInitial<OfficeType>;
+  initial: QueryResponseInitial<OfficeType | null>;
 }
 
 export default function OfficePreview({ initial }: OfficePreviewProps) {

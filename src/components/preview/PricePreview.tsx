@@ -6,7 +6,7 @@ import Price from "@/components/modules/Price";
 import type { PriceType } from "@/types";
 
 interface PricePreviewProps {
-  initial: QueryResponseInitial<PriceType>;
+  initial: QueryResponseInitial<PriceType | null>;
 }
 
 export default function PricePreview({ initial }: PricePreviewProps) {

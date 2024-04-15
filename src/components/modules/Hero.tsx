@@ -3,7 +3,7 @@ import ImageBox from "./ImageBox";
 import type { HeroType } from "@/types";
 
 interface HeroProps {
-  data: HeroType;
+  data: HeroType | null;
 }
 
 export default function Hero({ data }: HeroProps) {

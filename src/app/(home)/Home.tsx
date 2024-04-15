@@ -8,7 +8,7 @@ import Service from "@/components/modules/Service";
 import type { HomePayloadType } from "@/types";
 
 interface HomeProps {
-  data: HomePayloadType;
+  data: HomePayloadType | null;
 }
 
 export default function Home({ data }: HomeProps) {

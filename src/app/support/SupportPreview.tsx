@@ -5,11 +5,11 @@ import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
 import Support from "./Support";
 import type { SanityDocument } from "next-sanity";
 
-export default function SupportPreview({
-  initial,
-}: {
-  initial: QueryResponseInitial<SanityDocument>;
-}) {
+interface SupportPreviewProps {
+  initial: QueryResponseInitial<SanityDocument | null>;
+}
+
+export default function SupportPreview({ initial }: SupportPreviewProps) {
   const { data } = useQuery<SanityDocument | null>(
     SUPPORT_QUERY,
     {},

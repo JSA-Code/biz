@@ -1,5 +1,5 @@
 import createImageUrlBuilder from "@sanity/image-url";
-import { dataset, projectId } from "@/env";
+import { dataset, projectId } from "@/lib/api";
 import type { Image } from "sanity";
 
 const imageBuilder = createImageUrlBuilder({
@@ -18,21 +18,4 @@ export const urlForImage = (source: Image | undefined) => {
 
 export function urlForOpenGraphImage(image: Image | undefined) {
   return urlForImage(image)?.width(1200).height(627).fit("crop").url();
-}
-
-export function resolveHref(
-  documentType?: string,
-  slug?: string
-): string | undefined {
-  switch (documentType) {
-    case "home":
-      return "/";
-    case "page":
-      return slug ? `/${slug}` : undefined;
-    case "project":
-      return slug ? `/projects/${slug}` : undefined;
-    default:
-      console.warn("Invalid document type:", documentType);
-      return undefined;
-  }
 }

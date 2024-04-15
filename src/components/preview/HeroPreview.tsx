@@ -6,7 +6,7 @@ import Hero from "@/components/modules/Hero";
 import type { HeroType } from "@/types";
 
 interface HeroPreviewProps {
-  initial: QueryResponseInitial<HeroType>;
+  initial: QueryResponseInitial<HeroType | null>;
 }
 
 export default function HeroPreview({ initial }: HeroPreviewProps) {

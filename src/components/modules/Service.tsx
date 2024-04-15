@@ -2,7 +2,7 @@ import ImageBox from "./ImageBox";
 import type { ServiceType, ServiceItemType } from "@/types";
 
 interface ServiceProps {
-  data: ServiceType;
+  data: ServiceType | null;
 }
 
 export default function Service({ data }: ServiceProps) {

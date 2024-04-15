@@ -1,6 +1,5 @@
 import { groq } from "next-sanity";
 
-// TODO fix home query or modify entire schemas to only provide necessary data / be an obj containing property names
 export const HOME_QUERY = groq`*[_type == "home"][0]{
     documents{
       hero-> {heading, subheading, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}, image},

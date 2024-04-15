@@ -6,7 +6,7 @@ import Service from "@/components/modules/Service";
 import type { ServiceType } from "@/types";
 
 interface ServicePreviewProps {
-  initial: QueryResponseInitial<ServiceType>;
+  initial: QueryResponseInitial<ServiceType | null>;
 }
 
 export default function ServicePreview({ initial }: ServicePreviewProps) {

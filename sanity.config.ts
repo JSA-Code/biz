@@ -2,7 +2,7 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...index]]\page.tsx` route
  */
 import { defineConfig } from "sanity";
-import { apiVersion, dataset, projectId } from "./sanity/env";
+import { apiVersion, dataset, projectId } from "@/sanity/lib/api";
 import { schema } from "./sanity/schema";
 import { presentationTool } from "sanity/presentation";
 import { locate } from "@/presentation/locate";

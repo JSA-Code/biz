@@ -6,7 +6,7 @@ import Review from "@/components/modules/Review";
 import type { ReviewType } from "@/types";
 
 interface ReviewPreviewProps {
-  initial: QueryResponseInitial<ReviewType>;
+  initial: QueryResponseInitial<ReviewType | null>;
 }
 
 export default function ReviewPreview({ initial }: ReviewPreviewProps) {

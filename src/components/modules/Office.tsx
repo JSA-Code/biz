@@ -2,7 +2,7 @@ import { GoogleMapsEmbed } from "@next/third-parties/google";
 import type { OfficeType } from "@/types";
 
 interface OfficeProps {
-  data: OfficeType;
+  data: OfficeType | null;
 }
 
 export default function Office({ data }: OfficeProps) {

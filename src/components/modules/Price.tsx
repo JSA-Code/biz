@@ -1,7 +1,7 @@
 import type { PriceType, PriceItemType } from "@/types";
 
 interface PriceProps {
-  data: PriceType;
+  data: PriceType | null;
 }
 
 export default function Price({ data }: PriceProps) {

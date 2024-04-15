@@ -1,4 +1,4 @@
-import { loadQuery } from "@/lib/store";
+import { loadQuery } from "@/loader/loadQuery";
 import { SUPPORT_QUERY } from "@/lib/queries";
 import { draftMode } from "next/headers";
 import SupportPreview from "./SupportPreview";

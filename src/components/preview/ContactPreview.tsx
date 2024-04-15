@@ -6,7 +6,7 @@ import Contact from "@/components/modules/Contact";
 import type { ContactType } from "@/types";
 
 interface ContactPreviewProps {
-  initial: QueryResponseInitial<ContactType>;
+  initial: QueryResponseInitial<ContactType | null>;
 }
 
 export default function ContactPreview({ initial }: ContactPreviewProps) {

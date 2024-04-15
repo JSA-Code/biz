@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
-import LiveVisualEditing from "@/components/LiveVisualEditing";
+import LiveVisualEditing from "@/loader/LiveVisualEditing";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
 import type { Metadata } from "next";
@@ -23,8 +23,8 @@ export default function HomeLayout({
       <body className={inter.className}>
         <Navbar />
         {children}
-        {draftMode().isEnabled && <LiveVisualEditing />}
         <Footer />
+        {draftMode().isEnabled && <LiveVisualEditing />}
       </body>
     </html>
   );

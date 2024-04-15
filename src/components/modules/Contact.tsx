@@ -3,7 +3,7 @@ import ImageBox from "./ImageBox";
 import type { ContactType } from "@/types";
 
 interface ContactProps {
-  data: ContactType;
+  data: ContactType | null;
 }
 
 export default function Contact({ data }: ContactProps) {

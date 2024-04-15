@@ -3,7 +3,7 @@ import ImageBox from "./ImageBox";
 import type { ReviewType, ReviewItemType } from "@/types";
 
 interface ReviewProps {
-  data: ReviewType;
+  data: ReviewType | null;
 }
 
 export default function Review({ data }: ReviewProps) {

@@ -1,5 +1,3 @@
-// TODO how does this file work? I cannot add private Google Maps key
-
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-03-11";
 
@@ -13,7 +11,9 @@ export const projectId = assertValue(
   "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID"
 );
 
-export const useCdn = false;
+export const revalidateSecret = process.env.SANITY_REVALIDATE_SECRET;
+
+export const studioUrl = "/studio";
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
