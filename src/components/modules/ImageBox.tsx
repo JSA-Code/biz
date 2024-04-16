@@ -37,7 +37,8 @@ export default function ImageBox({
           width={width}
           height={height}
           sizes={sizes}
-          placeholder="blur"
+          // TODO add placeholder data url, reference Dave Gray
+          // placeholder="blur"
           src={imageUrl}
         />
       )}

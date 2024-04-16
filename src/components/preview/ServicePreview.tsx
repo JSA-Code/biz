@@ -1,9 +1,10 @@
 "use client";
 
-import { SERVICE_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Service from "@/components/modules/Service";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { ServiceType } from "@/types";
+import { SERVICE_QUERY } from "@/lib/queries";
+import Service from "@/components/modules/Service";
 
 interface ServicePreviewProps {
   initial: QueryResponseInitial<ServiceType | null>;

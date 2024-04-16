@@ -1,4 +1,4 @@
-import Appointment from "@/components/modules/Appointment";
+import Appointment from "./Appointment";
 import Contact from "@/components/modules/Contact";
 import Hero from "@/components/modules/Hero";
 import Office from "@/components/modules/Office";
@@ -6,12 +6,14 @@ import Price from "@/components/modules/Price";
 import Review from "@/components/modules/Review";
 import Service from "@/components/modules/Service";
 import type { HomePayloadType } from "@/types";
+import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
 
 interface HomeProps {
   data: HomePayloadType | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
-export default function Home({ data }: HomeProps) {
+export default function Home({ data, encodeDataAttribute }: HomeProps) {
   const documents = data?.documents ?? {};
   const hero = documents.hero ?? {};
   const contact = documents.contact ?? {};
@@ -22,7 +24,7 @@ export default function Home({ data }: HomeProps) {
 
   return (
     <>
-      <Hero data={hero} />
+      <Hero data={hero} encodeDataAttribute={encodeDataAttribute} />
       <Appointment />
       <Contact data={contact} />
       <Office data={office} />

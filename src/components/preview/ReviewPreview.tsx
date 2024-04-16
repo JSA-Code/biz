@@ -1,9 +1,10 @@
 "use client";
 
-import { REVIEW_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Review from "@/components/modules/Review";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { ReviewType } from "@/types";
+import { REVIEW_QUERY } from "@/lib/queries";
+import Review from "@/components/modules/Review";
 
 interface ReviewPreviewProps {
   initial: QueryResponseInitial<ReviewType | null>;

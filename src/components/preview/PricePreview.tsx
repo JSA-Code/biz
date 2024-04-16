@@ -1,9 +1,10 @@
 "use client";
 
-import { PRICE_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Price from "@/components/modules/Price";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { PriceType } from "@/types";
+import { PRICE_QUERY } from "@/lib/queries";
+import Price from "@/components/modules/Price";
 
 interface PricePreviewProps {
   initial: QueryResponseInitial<PriceType | null>;

@@ -1,9 +1,10 @@
 "use client";
 
-import { HERO_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Hero from "@/components/modules/Hero";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { HeroType } from "@/types";
+import { HERO_QUERY } from "@/lib/queries";
+import Hero from "@/components/modules/Hero";
 
 interface HeroPreviewProps {
   initial: QueryResponseInitial<HeroType | null>;
@@ -11,7 +12,6 @@ interface HeroPreviewProps {
 
 export default function HeroPreview({ initial }: HeroPreviewProps) {
   const { data } = useQuery<HeroType | null>(HERO_QUERY, {}, { initial });
-  // console.log("DATA", data);
 
   return data ? (
     <Hero data={data} />

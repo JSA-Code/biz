@@ -1,8 +1,9 @@
 "use client";
 
-import { SUPPORT_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { SupportPayloadType } from "@/types";
+import { SUPPORT_QUERY } from "@/lib/queries";
 import Support from "./Support";
 
 interface SupportPreviewProps {

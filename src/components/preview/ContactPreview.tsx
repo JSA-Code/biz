@@ -1,9 +1,10 @@
 "use client";
 
-import { CONTACT_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Contact from "@/components/modules/Contact";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { ContactType } from "@/types";
+import { CONTACT_QUERY } from "@/lib/queries";
+import Contact from "@/components/modules/Contact";
 
 interface ContactPreviewProps {
   initial: QueryResponseInitial<ContactType | null>;

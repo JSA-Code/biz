@@ -1,9 +1,10 @@
 "use client";
 
-import { OFFICE_QUERY } from "@/lib/queries";
-import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
-import Office from "@/components/modules/Office";
+import type { QueryResponseInitial } from "@sanity/react-loader";
+import { useQuery } from "@/loader/useQuery";
 import type { OfficeType } from "@/types";
+import { OFFICE_QUERY } from "@/lib/queries";
+import Office from "@/components/modules/Office";
 
 interface OfficePreviewProps {
   initial: QueryResponseInitial<OfficeType | null>;
