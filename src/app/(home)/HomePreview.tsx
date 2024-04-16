@@ -12,14 +12,13 @@ interface HomePreviewProps {
 
 export default function HomePreview({ initial }: HomePreviewProps) {
   // TODO why does the website template uses const {data, encodeDataAttribute}?
-  const { data, encodeDataAttribute } = useQuery<HomePayloadType | null>(
+  const { data } = useQuery<HomePayloadType | null>(
     HOME_QUERY,
     {},
     { initial }
   );
-
   return data ? (
-    <Home data={data} encodeDataAttribute={encodeDataAttribute} />
+    <Home data={data} />
   ) : (
     <div className="bg-red-100">No data found</div>
   );

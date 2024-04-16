@@ -1,14 +1,12 @@
 import Link from "next/link";
 import ImageBox from "./ImageBox";
 import type { HeroType } from "@/types";
-import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
 
 interface HeroProps {
   data: HeroType | null;
-  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
-export default function Hero({ data, encodeDataAttribute }: HeroProps) {
+export default function Hero({ data }: HeroProps) {
   const heading = data?.heading ?? "HEADING";
   const subheading = data?.subheading ?? "SUBHEADING";
   const primaryButton = data?.primaryButton ?? {};
@@ -37,8 +35,7 @@ export default function Hero({ data, encodeDataAttribute }: HeroProps) {
             <div className="flex flex-col lg:items-start gap-5 max-w-sm md:max-w-xl mx-auto lg:mx-0">
               <Link
                 href={primaryLink}
-                // TODO are these data-sanity correct?
-                data-sanity={encodeDataAttribute?.("primaryLink")}
+                // TODO should I add data-sanity w/ encodeDataAttribute?
                 // TODO should these two elems be display: block or inline-block?
                 className="bg-green-800 hover:bg-slate-800 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
@@ -46,7 +43,6 @@ export default function Hero({ data, encodeDataAttribute }: HeroProps) {
               </Link>
               <Link
                 href={secondaryLink}
-                data-sanity={encodeDataAttribute?.("secondaryLink")}
                 className="bg-slate-800 hover:bg-green-700 md:text-xl text-white rounded-3xl p-3 md:p-4 inline-block"
               >
                 {secondaryLabel}
@@ -57,7 +53,6 @@ export default function Hero({ data, encodeDataAttribute }: HeroProps) {
         <ImageBox
           image={image}
           classesWrapper="flex-1 mx-auto h-56 sm:h-72 lg:h-full rounded-md shadow-slate-900/50 shadow-xl"
-          data-sanity={encodeDataAttribute?.("image")}
           sizes="(min-width: 780px) calc(48.92vw - 60px), calc(100vw - 80px)"
         />
       </div>
