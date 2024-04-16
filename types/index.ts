@@ -11,6 +11,10 @@ export interface HomePayloadType {
   };
 }
 
+export interface SupportPayloadType {
+  documents?: {};
+}
+
 export interface HeroType {
   heading?: string;
   subheading?: string;

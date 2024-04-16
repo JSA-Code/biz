@@ -2,15 +2,15 @@
 
 import { SUPPORT_QUERY } from "@/lib/queries";
 import { QueryResponseInitial, useQuery } from "@sanity/react-loader";
+import type { SupportPayloadType } from "@/types";
 import Support from "./Support";
-import type { SanityDocument } from "next-sanity";
 
 interface SupportPreviewProps {
-  initial: QueryResponseInitial<SanityDocument | null>;
+  initial: QueryResponseInitial<SupportPayloadType | null>;
 }
 
 export default function SupportPreview({ initial }: SupportPreviewProps) {
-  const { data } = useQuery<SanityDocument | null>(
+  const { data } = useQuery<SupportPayloadType | null>(
     SUPPORT_QUERY,
     {},
     { initial }

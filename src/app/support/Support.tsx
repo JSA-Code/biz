@@ -1,7 +1,10 @@
-import type { SanityDocument } from "next-sanity";
+import { SupportPayloadType } from "@/types";
 
-export default function Support({ data }: { data: any }) {
-  // console.log("DATA", data);
+interface SupportProps {
+  data: SupportPayloadType | null;
+}
+
+export default function Support({ data }: SupportProps) {
   return (
     <section id="support" className="pt-0 lg:pt-10">
       Hey

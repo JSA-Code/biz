@@ -4,9 +4,19 @@ import * as queryStore from "@sanity/react-loader";
 import { client } from "@/lib/client";
 import { token } from "@/lib/token";
 import { draftMode } from "next/headers";
-import { HomePayloadType } from "@/types";
+import {
+  HomePayloadType,
+  SupportPayloadType,
+  HeroType,
+  ContactType,
+  OfficeType,
+  ReviewType,
+  ServiceType,
+  PriceType,
+} from "@/types";
 import {
   HOME_QUERY,
+  SUPPORT_QUERY,
   HERO_QUERY,
   CONTACT_QUERY,
   OFFICE_QUERY,
@@ -39,6 +49,7 @@ export const loadQuery = ((query, params = {}, options = {}) => {
   } else if (usingCdn) {
     revalidate = 60;
   }
+
   return queryStore.loadQuery(query, params, {
     ...options,
     next: {
@@ -52,6 +63,107 @@ export const loadQuery = ((query, params = {}, options = {}) => {
 }) satisfies typeof queryStore.loadQuery;
 
 export function loadHome() {
-  // third arg uses in template: { next: { tags: ['home', 'project'] } }
-  return loadQuery<HomePayloadType | null>(HOME_QUERY, {}, {});
+  // in template, third arg used as: { next: { tags: ['home', 'project'] } }
+  return loadQuery<HomePayloadType | null>(
+    HOME_QUERY,
+    {},
+    {
+      next: {
+        tags: [
+          "home",
+          "hero",
+          "contact",
+          "office",
+          "review",
+          "service",
+          "price",
+        ],
+      },
+    }
+  );
+}
+
+export function loadSupport() {
+  // in template, third arg used as: { next: { tags: ['home', 'project'] } }
+  return loadQuery<SupportPayloadType | null>(
+    SUPPORT_QUERY,
+    {},
+    {
+      next: {
+        tags: ["support"],
+      },
+    }
+  );
+}
+
+export function loadHero() {
+  return loadQuery<HeroType | null>(
+    HERO_QUERY,
+    {},
+    {
+      next: {
+        tags: ["hero"],
+      },
+    }
+  );
+}
+
+export function loadContact() {
+  return loadQuery<ContactType | null>(
+    CONTACT_QUERY,
+    {},
+    {
+      next: {
+        tags: ["contact"],
+      },
+    }
+  );
+}
+
+export function loadOffice() {
+  return loadQuery<OfficeType | null>(
+    OFFICE_QUERY,
+    {},
+    {
+      next: {
+        tags: ["office"],
+      },
+    }
+  );
+}
+
+export function loadReview() {
+  return loadQuery<ReviewType | null>(
+    REVIEW_QUERY,
+    {},
+    {
+      next: {
+        tags: ["review"],
+      },
+    }
+  );
+}
+
+export function loadService() {
+  return loadQuery<ServiceType | null>(
+    SERVICE_QUERY,
+    {},
+    {
+      next: {
+        tags: ["service"],
+      },
+    }
+  );
+}
+
+export function loadPrice() {
+  return loadQuery<PriceType | null>(
+    PRICE_QUERY,
+    {},
+    {
+      next: {
+        tags: ["price"],
+      },
+    }
+  );
 }
