@@ -74,7 +74,7 @@ export default function Navbar({}: Props) {
                   </ul>
                 </div>
               </div>
-              {/* GREEN, Navbar box right, add sign in/search button border-4 border-green-700 */}
+              {/* GREEN, Navbar box right, sign in/search button border-4 border-green-700 */}
             </div>
           </div>
           {/* Mobile menu left panel */}
