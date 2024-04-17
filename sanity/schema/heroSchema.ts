@@ -35,7 +35,7 @@ export default defineType({
           name: "primaryLabel",
           title: "Button Label",
           description: "Write an action word",
-          validation: (rule) => rule.max(15),
+          validation: (rule) => rule.max(20),
         }),
         defineField({
           type: "url",
@@ -63,7 +63,7 @@ export default defineType({
           name: "secondaryLabel",
           title: "Button Label",
           description: "Write an action word",
-          validation: (rule) => rule.max(15),
+          validation: (rule) => rule.max(20),
         }),
         defineField({
           type: "url",

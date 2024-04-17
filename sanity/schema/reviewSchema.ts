@@ -29,14 +29,14 @@ export default defineType({
               name: "name",
               title: "Name",
               description: "Write the name of the customer",
-              validation: (rule) => rule.max(15),
+              validation: (rule) => rule.max(20),
             }),
             defineField({
               type: "string",
               name: "company",
               title: "Company",
               description: "Write the customer's job company name",
-              validation: (rule) => rule.max(15),
+              validation: (rule) => rule.max(20),
             }),
             defineField({
               type: "url",
