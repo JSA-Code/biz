@@ -1,14 +1,12 @@
 import { groq } from "next-sanity";
 
 export const HOME_QUERY = groq`*[_type == "home"][0]{
-    documents{
-      hero-> {heading, subheading, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}, image},
-      contact-> {heading, subheading, image, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}},
-      office-> {location},
-      review-> {reviews[]{heading, name, company, link, image, _key}},
-      service-> {heading, subheading, services[]{heading, subheading, icon, _key}},
-      price-> {heading, subheading, prices[]{heading, subheading, frequency, buttonLabel, buttonLink, price, featureList[], _key}},
-    }
+    hero-> {heading, subheading, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}, image},
+    contact-> {heading, subheading, image, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}},
+    office-> {location},
+    review-> {reviews[]{heading, name, company, link, image, _key}},
+    service-> {heading, subheading, services[]{heading, subheading, icon, _key}},
+    price-> {heading, subheading, prices[]{heading, subheading, frequency, buttonLabel, buttonLink, price, featureList[], _key}},
   }`;
 export const SUPPORT_QUERY = groq`*[_type == "support"][0]`;
 export const HERO_QUERY = groq`*[_type == "hero"][0]{heading, subheading, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}, image}`;

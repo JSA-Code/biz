@@ -12,13 +12,12 @@ interface HomeProps {
 }
 
 export default function Home({ data }: HomeProps) {
-  const documents = data?.documents ?? {};
-  const hero = documents.hero ?? {};
-  const contact = documents.contact ?? {};
-  const office = documents.office ?? {};
-  const review = documents.review ?? {};
-  const service = documents.service ?? {};
-  const price = documents.price ?? {};
+  const hero = data?.hero ?? {};
+  const contact = data?.contact ?? {};
+  const office = data?.office ?? {};
+  const review = data?.review ?? {};
+  const service = data?.service ?? {};
+  const price = data?.price ?? {};
 
   return (
     <>

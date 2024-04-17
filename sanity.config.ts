@@ -18,7 +18,7 @@ export default defineConfig({
   schema,
   plugins: [
     presentationTool({
-      locate,
+      // locate,
       previewUrl: { previewMode: { enable: "/api/draft" } },
     }),
     structureTool(),

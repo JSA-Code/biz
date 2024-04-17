@@ -1,21 +1,25 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { BillIcon } from "@sanity/icons";
 
 export default defineType({
   type: "document",
   name: "price",
   title: "Price",
+  icon: BillIcon,
   fields: [
     defineField({
       type: "string",
       name: "heading",
       title: "Heading",
       description: "Write the main heading",
+      validation: (rule) => rule.max(60),
     }),
     defineField({
       type: "string",
       name: "subheading",
       title: "Subheading",
       description: "Write the main subheading",
+      validation: (rule) => rule.max(200),
     }),
     defineField({
       type: "array",
@@ -32,24 +36,28 @@ export default defineType({
               name: "heading",
               title: "Heading",
               description: "Write the type of pricing",
+              validation: (rule) => rule.max(30),
             }),
             defineField({
               type: "string",
               name: "subheading",
               title: "Subheading",
               description: "Write the description of the pricing",
+              validation: (rule) => rule.max(60),
             }),
             defineField({
               type: "string",
               name: "frequency",
               title: "Frequency",
               description: "Write how often the client will be charged",
+              validation: (rule) => rule.max(15),
             }),
             defineField({
               type: "string",
               name: "buttonLabel",
               title: "Button Label",
               description: "Write an action word",
+              validation: (rule) => rule.max(15),
             }),
             defineField({
               type: "url",
@@ -62,6 +70,7 @@ export default defineType({
               name: "price",
               title: "Price",
               description: "Write a price ($)",
+              validation: (rule) => rule.positive().precision(2),
             }),
             defineField({
               type: "array",
@@ -73,8 +82,10 @@ export default defineType({
                   name: "feature",
                   title: "Feature",
                   description: "Write all the associated features",
+                  validation: (rule) => rule.max(30),
                 }),
               ],
+              validation: (rule) => rule.max(5),
             }),
             defineField({
               type: "image",
@@ -90,12 +101,14 @@ export default defineType({
                   type: "string",
                   name: "alt",
                   title: "Alternative Text",
+                  validation: (rule) => rule.max(60),
                 }),
               ],
             }),
           ],
         }),
       ],
+      validation: (rule) => rule.max(3),
     }),
   ],
 });

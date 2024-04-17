@@ -1,19 +1,15 @@
 import type { Image } from "sanity";
 
 export interface HomePayloadType {
-  documents?: {
-    hero?: HeroType;
-    contact?: ContactType;
-    office?: OfficeType;
-    review?: ReviewType;
-    service?: ServiceType;
-    price?: PriceType;
-  };
+  hero?: HeroType;
+  contact?: ContactType;
+  office?: OfficeType;
+  review?: ReviewType;
+  service?: ServiceType;
+  price?: PriceType;
 }
 
-export interface SupportPayloadType {
-  documents?: {};
-}
+export interface SupportPayloadType {}
 
 export interface HeroType {
   heading?: string;

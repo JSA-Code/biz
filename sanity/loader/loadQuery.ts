@@ -45,6 +45,8 @@ export const loadQuery = ((query, params = {}, options = {}) => {
   let revalidate: NextFetchRequestConfig["revalidate"] = 0;
   // If `next.tags` is set, and we're not using the CDN, then it's safe to cache
   if (!usingCdn && Array.isArray(options.next?.tags)) {
+    // USE THIS IN DEV
+    // revalidate = 0;
     revalidate = false;
   } else if (usingCdn) {
     revalidate = 60;

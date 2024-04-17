@@ -1,21 +1,25 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { CaseIcon } from "@sanity/icons";
 
 export default defineType({
   type: "document",
   name: "service",
   title: "Service",
+  icon: CaseIcon,
   fields: [
     defineField({
       type: "string",
       name: "heading",
       title: "Heading",
       description: "Write the main heading",
+      validation: (rule) => rule.max(60),
     }),
     defineField({
       type: "string",
       name: "subheading",
       title: "Subheading",
       description: "Write the main subheading",
+      validation: (rule) => rule.max(200),
     }),
     defineField({
       type: "array",
@@ -32,12 +36,14 @@ export default defineType({
               name: "heading",
               title: "Heading",
               description: "Write the type of service",
+              validation: (rule) => rule.max(30),
             }),
             defineField({
               type: "string",
               name: "subheading",
               title: "Subheading",
               description: "Write the description of the service",
+              validation: (rule) => rule.max(60),
             }),
             defineField({
               type: "image",
@@ -53,12 +59,14 @@ export default defineType({
                   type: "string",
                   name: "alt",
                   title: "Alternative Text",
+                  validation: (rule) => rule.max(60),
                 }),
               ],
             }),
           ],
         }),
       ],
+      validation: (rule) => rule.max(6),
     }),
   ],
 });

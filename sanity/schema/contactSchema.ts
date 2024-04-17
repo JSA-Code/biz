@@ -1,21 +1,25 @@
 import { defineField, defineType } from "sanity";
+import { CommentIcon } from "@sanity/icons";
 
 export default defineType({
   type: "document",
   name: "contact",
   title: "Contact",
+  icon: CommentIcon,
   fields: [
     defineField({
       type: "string",
       name: "heading",
       title: "Heading",
       description: "Write heading name",
+      validation: (rule) => rule.max(60),
     }),
     defineField({
       type: "string",
       name: "subheading",
       title: "Subheading",
       description: "Write your contact information",
+      validation: (rule) => rule.max(200),
     }),
     defineField({
       type: "object",
@@ -31,14 +35,15 @@ export default defineType({
           name: "primaryLabel",
           title: "Button Label",
           description: "Write an action word",
+          validation: (rule) => rule.max(15),
         }),
         defineField({
           type: "url",
           name: "primaryLink",
           title: "Button Link",
           description: "Enter the URL this button should link to",
-          validation: (Rule) =>
-            Rule.uri({
+          validation: (rule) =>
+            rule.uri({
               scheme: ["http", "https", "mailto", "tel"],
             }),
         }),
@@ -58,14 +63,15 @@ export default defineType({
           name: "secondaryLabel",
           title: "Button Label",
           description: "Write an action word",
+          validation: (rule) => rule.max(15),
         }),
         defineField({
           type: "url",
           name: "secondaryLink",
           title: "Button Link",
           description: "Enter the URL this button should link to",
-          validation: (Rule) =>
-            Rule.uri({
+          validation: (rule) =>
+            rule.uri({
               scheme: ["http", "https", "mailto", "tel"],
             }),
         }),
@@ -85,6 +91,7 @@ export default defineType({
           type: "string",
           name: "alt",
           title: "Alternative Text",
+          validation: (rule) => rule.max(60),
         }),
       ],
     }),
