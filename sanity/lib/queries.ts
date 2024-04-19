@@ -9,6 +9,7 @@ export const HOME_QUERY = groq`*[_type == "home"][0]{
     price-> {heading, subheading, prices[]{heading, subheading, frequency, buttonLabel, buttonLink, price, featureList[], _key}},
   }`;
 export const SUPPORT_QUERY = groq`*[_type == "support"][0]`;
+export const ABOUT_QUERY = groq`*[_type == "about"][0]`;
 export const HERO_QUERY = groq`*[_type == "hero"][0]{heading, subheading, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}, image}`;
 export const CONTACT_QUERY = groq`*[_type == "contact"][0]{heading, subheading, image, primaryButton{primaryLabel, primaryLink}, secondaryButton{secondaryLabel, secondaryLink}}`;
 export const OFFICE_QUERY = groq`*[_type == "office"][0]{location}`;

@@ -12,14 +12,14 @@ export default defineType({
       name: "heading",
       title: "Heading",
       description: "Write a short, introductive heading",
-      validation: (rule) => rule.max(60),
+      validation: (rule) => rule.max(200),
     }),
     defineField({
       type: "string",
       name: "subheading",
       title: "Subheading",
       description: "Write a short, introductive subheading",
-      validation: (rule) => rule.max(200),
+      validation: (rule) => rule.max(400),
     }),
     defineField({
       type: "object",
@@ -35,7 +35,7 @@ export default defineType({
           name: "primaryLabel",
           title: "Button Label",
           description: "Write an action word",
-          validation: (rule) => rule.max(20),
+          validation: (rule) => rule.max(30),
         }),
         defineField({
           type: "url",
@@ -45,6 +45,7 @@ export default defineType({
           validation: (rule) =>
             rule.uri({
               scheme: ["http", "https", "mailto", "tel"],
+              allowRelative: true,
             }),
         }),
       ],
@@ -63,7 +64,7 @@ export default defineType({
           name: "secondaryLabel",
           title: "Button Label",
           description: "Write an action word",
-          validation: (rule) => rule.max(20),
+          validation: (rule) => rule.max(30),
         }),
         defineField({
           type: "url",
@@ -73,6 +74,7 @@ export default defineType({
           validation: (rule) =>
             rule.uri({
               scheme: ["http", "https", "mailto", "tel"],
+              allowRelative: true,
             }),
         }),
       ],
@@ -91,7 +93,7 @@ export default defineType({
           type: "string",
           name: "alt",
           title: "Alternative Text",
-          validation: (rule) => rule.max(60),
+          validation: (rule) => rule,
         }),
       ],
     }),

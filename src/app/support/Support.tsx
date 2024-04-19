@@ -6,8 +6,8 @@ interface SupportProps {
 
 export default function Support({ data }: SupportProps) {
   return (
-    <section id="support" className="pt-0 lg:pt-10">
-      Hey
+    <section id="support" className="min-h-[60svh] pt-0 lg:pt-10">
+      Support
     </section>
   );
 }

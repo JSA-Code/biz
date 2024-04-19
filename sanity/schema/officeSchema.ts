@@ -11,7 +11,7 @@ export default defineType({
       type: "string",
       name: "location",
       description: "Set the office location",
-      validation: (rule) => rule.max(60),
+      validation: (rule) => rule.max(100),
     }),
   ],
 });

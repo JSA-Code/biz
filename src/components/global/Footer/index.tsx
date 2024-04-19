@@ -22,7 +22,7 @@ const navigation = [
   {
     heading: "About",
     linkItems: [
-      { name: "Testimonals", link: "/#customer-review" },
+      { name: "Company", link: "/about" },
       { name: "Privacy Policy", link: "/privacy-policy" },
       { name: "Terms & Conditions", link: "/terms-and-conditions" },
     ],

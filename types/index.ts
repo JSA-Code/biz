@@ -11,6 +11,8 @@ export interface HomePayloadType {
 
 export interface SupportPayloadType {}
 
+export interface AboutPayloadType {}
+
 export interface HeroType {
   heading?: string;
   subheading?: string;

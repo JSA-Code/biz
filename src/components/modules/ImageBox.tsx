@@ -25,13 +25,12 @@ export default function ImageBox({
   // console.log("IMAGE URL", imageUrl);
   return (
     <div
-      // className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
-      className={`relative w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
+      className={`relative overflow-hidden ${classesWrapper}`}
       data-sanity={props["data-sanity"]}
     >
       {imageUrl && (
         <Image
-          // className="absolute h-full w-full"
+          src={imageUrl}
           className="h-full w-full object-cover object-center"
           alt={alt}
           width={width}
@@ -39,7 +38,6 @@ export default function ImageBox({
           sizes={sizes}
           // TODO add placeholder data url, reference Dave Gray
           // placeholder="blur"
-          src={imageUrl}
         />
       )}
     </div>

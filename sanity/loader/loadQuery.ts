@@ -7,6 +7,7 @@ import { draftMode } from "next/headers";
 import {
   HomePayloadType,
   SupportPayloadType,
+  AboutPayloadType,
   HeroType,
   ContactType,
   OfficeType,
@@ -17,6 +18,7 @@ import {
 import {
   HOME_QUERY,
   SUPPORT_QUERY,
+  ABOUT_QUERY,
   HERO_QUERY,
   CONTACT_QUERY,
   OFFICE_QUERY,
@@ -93,6 +95,19 @@ export function loadSupport() {
     {
       next: {
         tags: ["support"],
+      },
+    }
+  );
+}
+
+export function loadAbout() {
+  // in template, third arg used as: { next: { tags: ['home', 'project'] } }
+  return loadQuery<AboutPayloadType | null>(
+    ABOUT_QUERY,
+    {},
+    {
+      next: {
+        tags: ["about"],
       },
     }
   );

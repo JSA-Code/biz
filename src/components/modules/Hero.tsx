@@ -27,7 +27,7 @@ export default function Hero({ data }: HeroProps) {
           {/* TODO bottom div might need change? Is mx-auto necessary? */}
           <div className="text-lg text-center text-balance font-semibold space-y-6">
             <div className="max-w-lg sm:max-w-2xl space-y-6">
-              <h2 className="text-5xl 2xl:text-7xl font-bold lg:text-start">
+              <h2 className="text-5xl 2xl:text-6xl font-extrabold lg:text-start">
                 {heading}
               </h2>
               <h3 className="lg:text-start font-medium">{subheading}</h3>
@@ -52,7 +52,7 @@ export default function Hero({ data }: HeroProps) {
         </div>
         <ImageBox
           image={image}
-          classesWrapper="flex-1 mx-auto h-56 sm:h-72 lg:h-full rounded-md shadow-slate-900/50 shadow-xl"
+          classesWrapper="flex-1 mx-auto shadow-slate-900/50 rounded-md shadow-xl"
           sizes="(min-width: 780px) calc(48.92vw - 60px), calc(100vw - 80px)"
         />
       </div>
